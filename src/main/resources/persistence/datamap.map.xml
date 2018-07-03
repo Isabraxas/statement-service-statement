@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/9/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/9/modelMap http://cayenne.apache.org/schema/9/modelMap.xsd"
+	 project-version="9">
+	<property name="defaultPackage" value="com.viridian.service.statement.persistence"/>
+	<db-entity name="ACCOUNT">
+		<db-attribute name="BALANCE" type="DECIMAL"/>
+		<db-attribute name="CREATE_DATE" type="TIMESTAMP"/>
+		<db-attribute name="CURRENCY" type="VARCHAR" length="3"/>
+		<db-attribute name="FIRSTNAME" type="VARCHAR" length="32"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="LASTNAME" type="VARCHAR" length="32"/>
+		<db-attribute name="NUMBER" type="VARCHAR" length="32"/>
+	</db-entity>
+	<db-entity name="TRANSACTION">
+		<db-attribute name="ACCOUNT_SOURCE" type="INTEGER"/>
+		<db-attribute name="ACCOUNT_TARGET" type="INTEGER"/>
+		<db-attribute name="AMOUNT" type="DECIMAL"/>
+		<db-attribute name="CURRENCY" type="VARCHAR" length="3"/>
+		<db-attribute name="DATE" type="TIMESTAMP"/>
+		<db-attribute name="DESCRIPTION" type="VARCHAR" length="50"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="SOURCE" type="VARCHAR" length="32"/>
+		<db-attribute name="TARGET" type="VARCHAR" length="32"/>
+		<db-attribute name="TYPE" type="CHAR" length="1"/>
+	</db-entity>
+	<obj-entity name="Account" className="com.viridian.service.statement.persistence.Account" dbEntityName="ACCOUNT">
+		<obj-attribute name="balance" type="java.math.BigDecimal" db-attribute-path="BALANCE"/>
+		<obj-attribute name="createDate" type="java.time.LocalDateTime" db-attribute-path="CREATE_DATE"/>
+		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
+		<obj-attribute name="firstname" type="java.lang.String" db-attribute-path="FIRSTNAME"/>
+		<obj-attribute name="lastname" type="java.lang.String" db-attribute-path="LASTNAME"/>
+		<obj-attribute name="number" type="java.lang.String" db-attribute-path="NUMBER"/>
+	</obj-entity>
+	<obj-entity name="Transaction" className="com.viridian.service.statement.persistence.Transaction" dbEntityName="TRANSACTION">
+		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
+		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
+		<obj-attribute name="date" type="java.time.LocalDateTime" db-attribute-path="DATE"/>
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="DESCRIPTION"/>
+		<obj-attribute name="source" type="java.lang.String" db-attribute-path="SOURCE"/>
+		<obj-attribute name="target" type="java.lang.String" db-attribute-path="TARGET"/>
+		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
+	</obj-entity>
+	<db-relationship name="untitledRel" source="ACCOUNT" target="TRANSACTION" toMany="true">
+		<db-attribute-pair source="ID" target="ACCOUNT_SOURCE"/>
+	</db-relationship>
+	<db-relationship name="untitledRel1" source="ACCOUNT" target="TRANSACTION" toMany="true">
+		<db-attribute-pair source="ID" target="ACCOUNT_TARGET"/>
+	</db-relationship>
+	<db-relationship name="XSOURCE" source="TRANSACTION" target="ACCOUNT" toMany="false">
+		<db-attribute-pair source="ACCOUNT_SOURCE" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XTARGET" source="TRANSACTION" target="ACCOUNT" toMany="false">
+		<db-attribute-pair source="ACCOUNT_TARGET" target="ID"/>
+	</db-relationship>
+	<obj-relationship name="transactions" source="Account" target="Transaction" deleteRule="Deny" db-relationship-path="untitledRel"/>
+	<obj-relationship name="transactions1" source="Account" target="Transaction" deleteRule="Deny" db-relationship-path="untitledRel1"/>
+	<obj-relationship name="xSOURCE" source="Transaction" target="Account" deleteRule="Nullify" db-relationship-path="XSOURCE"/>
+	<obj-relationship name="xTARGET" source="Transaction" target="Account" deleteRule="Nullify" db-relationship-path="XTARGET"/>
+</data-map>
