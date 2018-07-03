@@ -65,7 +65,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>accounts</finalName>
+		<finalName>statement</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
