@@ -65,7 +65,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>statement</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
