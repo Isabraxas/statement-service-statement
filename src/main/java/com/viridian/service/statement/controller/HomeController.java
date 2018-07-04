@@ -20,9 +20,10 @@ public class HomeController {
 
         return "Available commands:\n\n" +
             "Account Endpoints:\n" +
-            "  http /statement\n\tList all statement\n\n" +
-            "  http /statement/{number}\n\tGet transactions for one account\n\n" +
-            "  http POST /statement?quantity=1\n\tcreates many dummy statement\n\n";
+            "  http /account\n\tList all statement\n\n" +
+            "  http /account/{number}\n\tGet transactions for one account\n\n" +
+            "  http POST /account?quantity=1\n\tcreates many dummy accounts\n\n" +
+            "  http POST /transactions?quantity=1\n\tcreates many dummy transactions\n\n";
     }
 
 }

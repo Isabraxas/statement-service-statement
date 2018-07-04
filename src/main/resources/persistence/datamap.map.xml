@@ -13,6 +13,150 @@
 		<db-attribute name="LASTNAME" type="VARCHAR" length="32"/>
 		<db-attribute name="NUMBER" type="VARCHAR" length="32"/>
 	</db-entity>
+	<db-entity name="AUTH_ADAPTER">
+		<db-attribute name="ADAPTER_CONFIG" type="LONGVARCHAR"/>
+		<db-attribute name="CREATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="CREATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="DISABLED_BY_USER" type="INTEGER"/>
+		<db-attribute name="DISABLED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ENABLED" type="BOOLEAN"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="NAME" type="VARCHAR" length="200"/>
+		<db-attribute name="PK" type="VARCHAR" length="200"/>
+	</db-entity>
+	<db-entity name="CUSTOMER">
+		<db-attribute name="ADDRESS" type="VARCHAR" length="255"/>
+		<db-attribute name="CODE" type="VARCHAR" length="200"/>
+		<db-attribute name="CREATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="CREATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="DISABLED_BY_USER" type="INTEGER"/>
+		<db-attribute name="DISABLED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ENABLED" type="BOOLEAN"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="LASTNAME" type="VARCHAR" length="200"/>
+		<db-attribute name="NAME" type="VARCHAR" length="200"/>
+		<db-attribute name="PHONE" type="VARCHAR" length="100"/>
+		<db-attribute name="PK" type="VARCHAR" length="100"/>
+		<db-attribute name="TYPE" type="VARCHAR" length="100"/>
+	</db-entity>
+	<db-entity name="CUSTOMER_ACCOUNT">
+		<db-attribute name="ACCOUNT_CODE" type="VARCHAR" length="100"/>
+		<db-attribute name="CREATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="CREATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="CURRENCY" type="VARCHAR" length="100"/>
+		<db-attribute name="CUSTOMER_ID" type="INTEGER" length="255"/>
+		<db-attribute name="DISABLED_BY_USER" type="INTEGER"/>
+		<db-attribute name="DISABLED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ENABLED" type="BOOLEAN"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="NAME" type="VARCHAR" length="200"/>
+		<db-attribute name="TYPE" type="VARCHAR" length="100"/>
+	</db-entity>
+	<db-entity name="CUSTOMER_SEND_STATEMENT">
+		<db-attribute name="CREATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="CREATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="CURRENCY" type="VARCHAR" length="100"/>
+		<db-attribute name="CUSTOMER_ID" type="INTEGER" length="255"/>
+		<db-attribute name="ENABLED" type="BOOLEAN"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="LAST_EXECUTION_DATE" type="TIMESTAMP"/>
+		<db-attribute name="LAST_JOB_ID" type="INTEGER"/>
+		<db-attribute name="SEND_ADAPTER" type="INTEGER"/>
+		<db-attribute name="START_DATE" type="TIMESTAMP" length="200"/>
+		<db-attribute name="TOTAL_ERRORS" type="INTEGER"/>
+		<db-attribute name="TOTAL_EXECUTIONS" type="INTEGER"/>
+		<db-attribute name="TYPE" type="VARCHAR" length="100"/>
+	</db-entity>
+	<db-entity name="JOB_EXECUTION">
+		<db-attribute name="COMPLETED" type="BOOLEAN"/>
+		<db-attribute name="COMPLETED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="EXECUTION_DATE" type="TIMESTAMP"/>
+		<db-attribute name="FIVE_TIME" type="INTEGER"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="STARTED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="STATEMENT_DATE" type="TIMESTAMP"/>
+		<db-attribute name="STATUS" type="VARCHAR" length="100"/>
+		<db-attribute name="TOTAL_ACCOUNTS" type="INTEGER"/>
+		<db-attribute name="TOTAL_THREADS" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="JOB_EXECUTION_THREAD">
+		<db-attribute name="COMPLETED" type="BOOLEAN"/>
+		<db-attribute name="COMPLETED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="JOB_EXECUTION_ID" type="INTEGER"/>
+		<db-attribute name="RUNNING" type="BOOLEAN"/>
+		<db-attribute name="SLEEPING" type="BOOLEAN"/>
+		<db-attribute name="STARTED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="STATEMENT_ACCOUNT" type="VARCHAR" length="100"/>
+		<db-attribute name="STATEMENT_DATE" type="TIMESTAMP"/>
+		<db-attribute name="STATUS" type="VARCHAR" length="100"/>
+		<db-attribute name="THREAD_NUMBER" type="INTEGER"/>
+	</db-entity>
+	<db-entity name="PERMISSION">
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="NAME" type="VARCHAR" length="100"/>
+	</db-entity>
+	<db-entity name="ROLE">
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="100"/>
+	</db-entity>
+	<db-entity name="ROLE_PERMISSION">
+		<db-attribute name="PERMISSION_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="ROLE_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="SEND_ADAPTER">
+		<db-attribute name="ADAPTER_CONFIG" type="LONGVARCHAR"/>
+		<db-attribute name="CREATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="CREATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="DISABLED_BY_USER" type="INTEGER"/>
+		<db-attribute name="DISABLED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ENABLED" type="BOOLEAN"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="NAME" type="VARCHAR" length="200"/>
+		<db-attribute name="PK" type="VARCHAR" length="200"/>
+	</db-entity>
+	<db-entity name="SETTINGS">
+		<db-attribute name="CONNECTION_RETRY_NUMBER" type="INTEGER"/>
+		<db-attribute name="EXECUTION_TIME" type="TIME"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="TOTAL_THREADS" type="INTEGER"/>
+		<db-attribute name="UPDATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="UPDATED_DATE" type="TIMESTAMP"/>
+	</db-entity>
+	<db-entity name="STATEMENT_DETAIL">
+		<db-attribute name="AMOUNT" type="DECIMAL"/>
+		<db-attribute name="DEBIT_CREDIT" type="VARCHAR" length="16"/>
+		<db-attribute name="DESCRIPTION" type="VARCHAR" length="200"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="START_BALANCE" type="DECIMAL"/>
+		<db-attribute name="STATEMENT_ACCOUNT" type="VARCHAR" length="100"/>
+		<db-attribute name="STATEMENT_HEADER_ID" type="INTEGER"/>
+		<db-attribute name="TRANSACTION_CODE" type="VARCHAR" length="100"/>
+		<db-attribute name="TRANSACTION_ID" type="VARCHAR" length="100"/>
+		<db-attribute name="TRANSACTION_TYPE" type="VARCHAR" length="100"/>
+	</db-entity>
+	<db-entity name="STATEMENT_HEADER">
+		<db-attribute name="ACCOUNT" type="VARCHAR" length="100"/>
+		<db-attribute name="COMPLETED" type="BOOLEAN" length="200"/>
+		<db-attribute name="CREATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="CREATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="DISABLED_BY_USER" type="INTEGER"/>
+		<db-attribute name="DISABLED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ENABLED" type="BOOLEAN"/>
+		<db-attribute name="END_BALANCE" type="DECIMAL"/>
+		<db-attribute name="GENERATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="RESEND" type="BOOLEAN"/>
+		<db-attribute name="RESEND_ATTEMPT_NUMBER" type="INTEGER"/>
+		<db-attribute name="RESEND_BY_USER" type="INTEGER"/>
+		<db-attribute name="RESEND_DATE" type="TIMESTAMP"/>
+		<db-attribute name="SEND_ADAPTER_ID" type="INTEGER"/>
+		<db-attribute name="SEND_DATE" type="TIMESTAMP"/>
+		<db-attribute name="START_BALANCE" type="DECIMAL"/>
+		<db-attribute name="STATEMENT_ACCOUNT" type="VARCHAR" length="100"/>
+		<db-attribute name="STATEMENT_DATE" type="TIMESTAMP"/>
+		<db-attribute name="TOTAL_TRANSACTIONS" type="INTEGER"/>
+	</db-entity>
 	<db-entity name="TRANSACTION">
 		<db-attribute name="ACCOUNT_SOURCE" type="INTEGER"/>
 		<db-attribute name="ACCOUNT_TARGET" type="INTEGER"/>
@@ -25,6 +169,19 @@
 		<db-attribute name="TARGET" type="VARCHAR" length="32"/>
 		<db-attribute name="TYPE" type="CHAR" length="1"/>
 	</db-entity>
+	<db-entity name="USERS">
+		<db-attribute name="AUTH_ADAPTER_ID" type="INTEGER"/>
+		<db-attribute name="CREATED_BY_USER" type="INTEGER"/>
+		<db-attribute name="CREATED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="DISABLED_BY_USER" type="INTEGER"/>
+		<db-attribute name="DISABLED_DATE" type="TIMESTAMP"/>
+		<db-attribute name="ENABLED" type="BOOLEAN"/>
+		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="LASTNAME" type="VARCHAR" length="200"/>
+		<db-attribute name="NAME" type="VARCHAR" length="200"/>
+		<db-attribute name="ROLE_ID" type="INTEGER" length="100"/>
+		<db-attribute name="USERNAME" type="VARCHAR" length="200"/>
+	</db-entity>
 	<obj-entity name="Account" className="com.viridian.service.statement.persistence.Account" dbEntityName="ACCOUNT">
 		<obj-attribute name="balance" type="java.math.BigDecimal" db-attribute-path="BALANCE"/>
 		<obj-attribute name="createDate" type="java.time.LocalDateTime" db-attribute-path="CREATE_DATE"/>
@@ -32,6 +189,121 @@
 		<obj-attribute name="firstname" type="java.lang.String" db-attribute-path="FIRSTNAME"/>
 		<obj-attribute name="lastname" type="java.lang.String" db-attribute-path="LASTNAME"/>
 		<obj-attribute name="number" type="java.lang.String" db-attribute-path="NUMBER"/>
+	</obj-entity>
+	<obj-entity name="AuthAdapter" className="com.viridian.service.statement.persistence.AuthAdapter" dbEntityName="AUTH_ADAPTER">
+		<obj-attribute name="adapterConfig" type="java.lang.String" db-attribute-path="ADAPTER_CONFIG"/>
+		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
+		<obj-attribute name="disabledDate" type="java.time.LocalDateTime" db-attribute-path="DISABLED_DATE"/>
+		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<obj-attribute name="pk" type="java.lang.String" db-attribute-path="PK"/>
+	</obj-entity>
+	<obj-entity name="Customer" className="com.viridian.service.statement.persistence.Customer" dbEntityName="CUSTOMER">
+		<obj-attribute name="address" type="java.lang.String" db-attribute-path="ADDRESS"/>
+		<obj-attribute name="code" type="java.lang.String" db-attribute-path="CODE"/>
+		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
+		<obj-attribute name="disabledDate" type="java.time.LocalDateTime" db-attribute-path="DISABLED_DATE"/>
+		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
+		<obj-attribute name="lastname" type="java.lang.String" db-attribute-path="LASTNAME"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<obj-attribute name="phone" type="java.lang.String" db-attribute-path="PHONE"/>
+		<obj-attribute name="pk" type="java.lang.String" db-attribute-path="PK"/>
+		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
+	</obj-entity>
+	<obj-entity name="CustomerAccount" className="com.viridian.service.statement.persistence.CustomerAccount" dbEntityName="CUSTOMER_ACCOUNT">
+		<obj-attribute name="accountCode" type="java.lang.String" db-attribute-path="ACCOUNT_CODE"/>
+		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
+		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
+		<obj-attribute name="disabledDate" type="java.time.LocalDateTime" db-attribute-path="DISABLED_DATE"/>
+		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
+	</obj-entity>
+	<obj-entity name="CustomerSendStatement" className="com.viridian.service.statement.persistence.CustomerSendStatement" dbEntityName="CUSTOMER_SEND_STATEMENT">
+		<obj-attribute name="createdByUser" type="int" db-attribute-path="CREATED_BY_USER"/>
+		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
+		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
+		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
+		<obj-attribute name="lastExecutionDate" type="java.time.LocalDateTime" db-attribute-path="LAST_EXECUTION_DATE"/>
+		<obj-attribute name="lastJobId" type="int" db-attribute-path="LAST_JOB_ID"/>
+		<obj-attribute name="sendAdapter" type="int" db-attribute-path="SEND_ADAPTER"/>
+		<obj-attribute name="startDate" type="java.time.LocalDateTime" db-attribute-path="START_DATE"/>
+		<obj-attribute name="totalErrors" type="int" db-attribute-path="TOTAL_ERRORS"/>
+		<obj-attribute name="totalExecutions" type="int" db-attribute-path="TOTAL_EXECUTIONS"/>
+		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
+	</obj-entity>
+	<obj-entity name="JobExecution" className="com.viridian.service.statement.persistence.JobExecution" dbEntityName="JOB_EXECUTION">
+		<obj-attribute name="completed" type="boolean" db-attribute-path="COMPLETED"/>
+		<obj-attribute name="completedDate" type="java.time.LocalDateTime" db-attribute-path="COMPLETED_DATE"/>
+		<obj-attribute name="executionDate" type="java.time.LocalDateTime" db-attribute-path="EXECUTION_DATE"/>
+		<obj-attribute name="fiveTime" type="int" db-attribute-path="FIVE_TIME"/>
+		<obj-attribute name="startedDate" type="java.time.LocalDateTime" db-attribute-path="STARTED_DATE"/>
+		<obj-attribute name="statementDate" type="java.time.LocalDateTime" db-attribute-path="STATEMENT_DATE"/>
+		<obj-attribute name="status" type="java.lang.String" db-attribute-path="STATUS"/>
+		<obj-attribute name="totalAccounts" type="int" db-attribute-path="TOTAL_ACCOUNTS"/>
+		<obj-attribute name="totalThreads" type="int" db-attribute-path="TOTAL_THREADS"/>
+	</obj-entity>
+	<obj-entity name="JobExecutionThread" className="com.viridian.service.statement.persistence.JobExecutionThread" dbEntityName="JOB_EXECUTION_THREAD">
+		<obj-attribute name="completed" type="boolean" db-attribute-path="COMPLETED"/>
+		<obj-attribute name="completedDate" type="java.time.LocalDateTime" db-attribute-path="COMPLETED_DATE"/>
+		<obj-attribute name="running" type="boolean" db-attribute-path="RUNNING"/>
+		<obj-attribute name="sleeping" type="boolean" db-attribute-path="SLEEPING"/>
+		<obj-attribute name="startedDate" type="java.time.LocalDateTime" db-attribute-path="STARTED_DATE"/>
+		<obj-attribute name="statementAccount" type="java.lang.String" db-attribute-path="STATEMENT_ACCOUNT"/>
+		<obj-attribute name="statementDate" type="java.time.LocalDateTime" db-attribute-path="STATEMENT_DATE"/>
+		<obj-attribute name="status" type="java.lang.String" db-attribute-path="STATUS"/>
+		<obj-attribute name="threadNumber" type="int" db-attribute-path="THREAD_NUMBER"/>
+	</obj-entity>
+	<obj-entity name="Permission" className="com.viridian.service.statement.persistence.Permission" dbEntityName="PERMISSION">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+	</obj-entity>
+	<obj-entity name="Role" className="com.viridian.service.statement.persistence.Role" dbEntityName="ROLE">
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+	</obj-entity>
+	<obj-entity name="RolePermission" className="com.viridian.service.statement.persistence.RolePermission" dbEntityName="ROLE_PERMISSION">
+	</obj-entity>
+	<obj-entity name="SendAdapter" className="com.viridian.service.statement.persistence.SendAdapter" dbEntityName="SEND_ADAPTER">
+		<obj-attribute name="adapterConfig" type="java.lang.String" db-attribute-path="ADAPTER_CONFIG"/>
+		<obj-attribute name="createdByUser" type="int" db-attribute-path="CREATED_BY_USER"/>
+		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
+		<obj-attribute name="disabledByUser" type="int" db-attribute-path="DISABLED_BY_USER"/>
+		<obj-attribute name="disabledDate" type="java.time.LocalDateTime" db-attribute-path="DISABLED_DATE"/>
+		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<obj-attribute name="pk" type="java.lang.String" db-attribute-path="PK"/>
+	</obj-entity>
+	<obj-entity name="Settings" className="com.viridian.service.statement.persistence.Settings" dbEntityName="SETTINGS">
+		<obj-attribute name="connectionRetryNumber" type="int" db-attribute-path="CONNECTION_RETRY_NUMBER"/>
+		<obj-attribute name="executionTime" type="java.time.LocalTime" db-attribute-path="EXECUTION_TIME"/>
+		<obj-attribute name="totalThreads" type="int" db-attribute-path="TOTAL_THREADS"/>
+		<obj-attribute name="updatedDate" type="java.time.LocalDateTime" db-attribute-path="UPDATED_DATE"/>
+	</obj-entity>
+	<obj-entity name="StatementDetail" className="com.viridian.service.statement.persistence.StatementDetail" dbEntityName="STATEMENT_DETAIL">
+		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
+		<obj-attribute name="debitCredit" type="java.lang.String" db-attribute-path="DEBIT_CREDIT"/>
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="DESCRIPTION"/>
+		<obj-attribute name="startBalance" type="java.math.BigDecimal" db-attribute-path="START_BALANCE"/>
+		<obj-attribute name="statementAccount" type="java.lang.String" db-attribute-path="STATEMENT_ACCOUNT"/>
+		<obj-attribute name="transactionCode" type="java.lang.String" db-attribute-path="TRANSACTION_CODE"/>
+		<obj-attribute name="transactionId" type="java.lang.String" db-attribute-path="TRANSACTION_ID"/>
+		<obj-attribute name="transactionType" type="java.lang.String" db-attribute-path="TRANSACTION_TYPE"/>
+	</obj-entity>
+	<obj-entity name="StatementHeader" className="com.viridian.service.statement.persistence.StatementHeader" dbEntityName="STATEMENT_HEADER">
+		<obj-attribute name="account" type="java.lang.String" db-attribute-path="ACCOUNT"/>
+		<obj-attribute name="completed" type="boolean" db-attribute-path="COMPLETED"/>
+		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
+		<obj-attribute name="disabledDate" type="java.time.LocalDateTime" db-attribute-path="DISABLED_DATE"/>
+		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
+		<obj-attribute name="endBalance" type="java.math.BigDecimal" db-attribute-path="END_BALANCE"/>
+		<obj-attribute name="generatedDate" type="java.time.LocalDateTime" db-attribute-path="GENERATED_DATE"/>
+		<obj-attribute name="resend" type="boolean" db-attribute-path="RESEND"/>
+		<obj-attribute name="resendAttemptNumber" type="int" db-attribute-path="RESEND_ATTEMPT_NUMBER"/>
+		<obj-attribute name="resendDate" type="java.time.LocalDateTime" db-attribute-path="RESEND_DATE"/>
+		<obj-attribute name="sendDate" type="java.time.LocalDateTime" db-attribute-path="SEND_DATE"/>
+		<obj-attribute name="startBalance" type="java.math.BigDecimal" db-attribute-path="START_BALANCE"/>
+		<obj-attribute name="statementAccount" type="java.lang.String" db-attribute-path="STATEMENT_ACCOUNT"/>
+		<obj-attribute name="statementDate" type="java.time.LocalDateTime" db-attribute-path="STATEMENT_DATE"/>
+		<obj-attribute name="totalTransactions" type="int" db-attribute-path="TOTAL_TRANSACTIONS"/>
 	</obj-entity>
 	<obj-entity name="Transaction" className="com.viridian.service.statement.persistence.Transaction" dbEntityName="TRANSACTION">
 		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
@@ -42,11 +314,102 @@
 		<obj-attribute name="target" type="java.lang.String" db-attribute-path="TARGET"/>
 		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
 	</obj-entity>
+	<obj-entity name="Transaction1" className="com.viridian.service.statement.persistence.Transaction1" dbEntityName="TRANSACTION">
+		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
+		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
+		<obj-attribute name="date" type="java.time.LocalDateTime" db-attribute-path="DATE"/>
+		<obj-attribute name="description" type="java.lang.String" db-attribute-path="DESCRIPTION"/>
+		<obj-attribute name="source" type="java.lang.String" db-attribute-path="SOURCE"/>
+		<obj-attribute name="target" type="java.lang.String" db-attribute-path="TARGET"/>
+		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
+	</obj-entity>
+	<obj-entity name="Users" className="com.viridian.service.statement.persistence.Users" dbEntityName="USERS">
+		<obj-attribute name="createdByUser" type="int" db-attribute-path="CREATED_BY_USER"/>
+		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
+		<obj-attribute name="disabledByUser" type="int" db-attribute-path="DISABLED_BY_USER"/>
+		<obj-attribute name="disabledDate" type="java.time.LocalDateTime" db-attribute-path="DISABLED_DATE"/>
+		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
+		<obj-attribute name="lastname" type="java.lang.String" db-attribute-path="LASTNAME"/>
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<obj-attribute name="username" type="java.lang.String" db-attribute-path="USERNAME"/>
+	</obj-entity>
 	<db-relationship name="untitledRel" source="ACCOUNT" target="TRANSACTION" toMany="true">
 		<db-attribute-pair source="ID" target="ACCOUNT_SOURCE"/>
 	</db-relationship>
 	<db-relationship name="untitledRel1" source="ACCOUNT" target="TRANSACTION" toMany="true">
 		<db-attribute-pair source="ID" target="ACCOUNT_TARGET"/>
+	</db-relationship>
+	<db-relationship name="XCREATED_USER" source="AUTH_ADAPTER" target="USERS" toMany="true">
+		<db-attribute-pair source="CREATED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XDISABLED_USER" source="AUTH_ADAPTER" target="USERS" toMany="false">
+		<db-attribute-pair source="DISABLED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XCREATED_USER" source="CUSTOMER" target="USERS" toMany="false">
+		<db-attribute-pair source="CREATED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XDISABLED_USER" source="CUSTOMER" target="USERS" toMany="false">
+		<db-attribute-pair source="DISABLED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="xCUSTOMER" source="CUSTOMER" target="CUSTOMER_ACCOUNT" toMany="true">
+		<db-attribute-pair source="ID" target="CUSTOMER_ID"/>
+	</db-relationship>
+	<db-relationship name="XCREATED_USER" source="CUSTOMER_ACCOUNT" target="USERS" toMany="false">
+		<db-attribute-pair source="CREATED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XCUSTOMER" source="CUSTOMER_ACCOUNT" target="CUSTOMER" toMany="false">
+		<db-attribute-pair source="CUSTOMER_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XDISABLED_USER" source="CUSTOMER_ACCOUNT" target="USERS" toMany="false">
+		<db-attribute-pair source="DISABLED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XCUSTOMER" source="CUSTOMER_SEND_STATEMENT" target="CUSTOMER" toMany="false">
+		<db-attribute-pair source="CUSTOMER_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XJOB_EXECUTION" source="JOB_EXECUTION_THREAD" target="JOB_EXECUTION" toMany="true">
+		<db-attribute-pair source="JOB_EXECUTION_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XROLE" source="PERMISSION" target="ROLE_PERMISSION" toMany="true">
+		<db-attribute-pair source="ID" target="PERMISSION_ID"/>
+	</db-relationship>
+	<db-relationship name="XROLE" source="ROLE" target="ROLE_PERMISSION" toMany="true">
+		<db-attribute-pair source="ID" target="ROLE_ID"/>
+	</db-relationship>
+	<db-relationship name="XUSER" source="ROLE" target="USERS" toMany="true">
+		<db-attribute-pair source="ID" target="ROLE_ID"/>
+	</db-relationship>
+	<db-relationship name="XPERMISSION" source="ROLE_PERMISSION" target="PERMISSION" toMany="false">
+		<db-attribute-pair source="PERMISSION_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XROLE" source="ROLE_PERMISSION" target="ROLE" toMany="false">
+		<db-attribute-pair source="ROLE_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="untitledRel" source="SEND_ADAPTER" target="USERS" toMany="true">
+		<db-attribute-pair source="ID" target="AUTH_ADAPTER_ID"/>
+	</db-relationship>
+	<db-relationship name="untitledRel1" source="SEND_ADAPTER" target="STATEMENT_HEADER" toMany="true">
+		<db-attribute-pair source="ID" target="SEND_ADAPTER_ID"/>
+	</db-relationship>
+	<db-relationship name="XUSER" source="SETTINGS" target="USERS" toMany="false">
+		<db-attribute-pair source="UPDATED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XHEADER_ID" source="STATEMENT_DETAIL" target="STATEMENT_HEADER" toMany="false">
+		<db-attribute-pair source="STATEMENT_HEADER_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XCREATED_USER" source="STATEMENT_HEADER" target="USERS" toMany="false">
+		<db-attribute-pair source="CREATED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XDISABLED_USER" source="STATEMENT_HEADER" target="USERS" toMany="false">
+		<db-attribute-pair source="DISABLED_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XRESEND_USER" source="STATEMENT_HEADER" target="USERS" toMany="true">
+		<db-attribute-pair source="RESEND_BY_USER" target="ID"/>
+	</db-relationship>
+	<db-relationship name="XSEND_ADAPTER" source="STATEMENT_HEADER" target="SEND_ADAPTER" toMany="false">
+		<db-attribute-pair source="SEND_ADAPTER_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="untitledRel" source="STATEMENT_HEADER" target="STATEMENT_DETAIL" toMany="true">
+		<db-attribute-pair source="ID" target="STATEMENT_HEADER_ID"/>
 	</db-relationship>
 	<db-relationship name="XSOURCE" source="TRANSACTION" target="ACCOUNT" toMany="false">
 		<db-attribute-pair source="ACCOUNT_SOURCE" target="ID"/>
@@ -54,8 +417,78 @@
 	<db-relationship name="XTARGET" source="TRANSACTION" target="ACCOUNT" toMany="false">
 		<db-attribute-pair source="ACCOUNT_TARGET" target="ID"/>
 	</db-relationship>
+	<db-relationship name="XADAPTER" source="USERS" target="AUTH_ADAPTER" toMany="false">
+		<db-attribute-pair source="ID" target="CREATED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="XROLE" source="USERS" target="ROLE" toMany="false">
+		<db-attribute-pair source="ROLE_ID" target="ID"/>
+	</db-relationship>
+	<db-relationship name="untitledRel" source="USERS" target="STATEMENT_HEADER" toMany="false">
+		<db-attribute-pair source="ID" target="RESEND_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel1" source="USERS" target="STATEMENT_HEADER" toMany="true">
+		<db-attribute-pair source="ID" target="CREATED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel2" source="USERS" target="STATEMENT_HEADER" toMany="true">
+		<db-attribute-pair source="ID" target="DISABLED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel3" source="USERS" target="SETTINGS" toMany="true">
+		<db-attribute-pair source="ID" target="UPDATED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel4" source="USERS" target="AUTH_ADAPTER" toMany="true">
+		<db-attribute-pair source="ID" target="DISABLED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel5" source="USERS" target="CUSTOMER" toMany="true">
+		<db-attribute-pair source="ID" target="CREATED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel6" source="USERS" target="CUSTOMER" toMany="true">
+		<db-attribute-pair source="ID" target="DISABLED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel7" source="USERS" target="CUSTOMER_ACCOUNT" toMany="true">
+		<db-attribute-pair source="ID" target="CREATED_BY_USER"/>
+	</db-relationship>
+	<db-relationship name="untitledRel8" source="USERS" target="CUSTOMER_ACCOUNT" toMany="true">
+		<db-attribute-pair source="ID" target="DISABLED_BY_USER"/>
+	</db-relationship>
 	<obj-relationship name="transactions" source="Account" target="Transaction" deleteRule="Deny" db-relationship-path="untitledRel"/>
 	<obj-relationship name="transactions1" source="Account" target="Transaction" deleteRule="Deny" db-relationship-path="untitledRel1"/>
+	<obj-relationship name="xCREATED_USER" source="AuthAdapter" target="Users" deleteRule="Deny" db-relationship-path="XCREATED_USER"/>
+	<obj-relationship name="xDISABLED_USER" source="AuthAdapter" target="Users" deleteRule="Nullify" db-relationship-path="XDISABLED_USER"/>
+	<obj-relationship name="xCREATED_USER" source="Customer" target="Users" deleteRule="Nullify" db-relationship-path="XCREATED_USER"/>
+	<obj-relationship name="xCUSTOMER" source="Customer" target="CustomerAccount" deleteRule="Deny" db-relationship-path="xCUSTOMER"/>
+	<obj-relationship name="xDISABLED_USER" source="Customer" target="Users" deleteRule="Nullify" db-relationship-path="XDISABLED_USER"/>
+	<obj-relationship name="xCREATED_USER" source="CustomerAccount" target="Users" deleteRule="Nullify" db-relationship-path="XCREATED_USER"/>
+	<obj-relationship name="xCUSTOMER" source="CustomerAccount" target="Customer" deleteRule="Nullify" db-relationship-path="XCUSTOMER"/>
+	<obj-relationship name="xDISABLED_USER" source="CustomerAccount" target="Users" deleteRule="Nullify" db-relationship-path="XDISABLED_USER"/>
+	<obj-relationship name="xCUSTOMER" source="CustomerSendStatement" target="Customer" deleteRule="Nullify" db-relationship-path="XCUSTOMER"/>
+	<obj-relationship name="xJOB_EXECUTION" source="JobExecutionThread" target="JobExecution" deleteRule="Deny" db-relationship-path="XJOB_EXECUTION"/>
+	<obj-relationship name="xROLE" source="Permission" target="RolePermission" deleteRule="Deny" db-relationship-path="XROLE"/>
+	<obj-relationship name="xROLE" source="Role" target="RolePermission" deleteRule="Deny" db-relationship-path="XROLE"/>
+	<obj-relationship name="xUSER" source="Role" target="Users" deleteRule="Deny" db-relationship-path="XUSER"/>
+	<obj-relationship name="xPERMISSION" source="RolePermission" target="Permission" deleteRule="Nullify" db-relationship-path="XPERMISSION"/>
+	<obj-relationship name="xROLE" source="RolePermission" target="Role" deleteRule="Nullify" db-relationship-path="XROLE"/>
+	<obj-relationship name="statementHeaders" source="SendAdapter" target="StatementHeader" deleteRule="Deny" db-relationship-path="untitledRel1"/>
+	<obj-relationship name="userss" source="SendAdapter" target="Users" deleteRule="Deny" db-relationship-path="untitledRel"/>
+	<obj-relationship name="xUSER" source="Settings" target="Users" deleteRule="Nullify" db-relationship-path="XUSER"/>
+	<obj-relationship name="xHEADER_ID" source="StatementDetail" target="StatementHeader" deleteRule="Nullify" db-relationship-path="XHEADER_ID"/>
+	<obj-relationship name="statementDetails" source="StatementHeader" target="StatementDetail" deleteRule="Deny" db-relationship-path="untitledRel"/>
+	<obj-relationship name="xCREATED_USER" source="StatementHeader" target="Users" deleteRule="Nullify" db-relationship-path="XCREATED_USER"/>
+	<obj-relationship name="xDISABLED_USER" source="StatementHeader" target="Users" deleteRule="Nullify" db-relationship-path="XDISABLED_USER"/>
+	<obj-relationship name="xRESEND_USER" source="StatementHeader" target="Users" deleteRule="Deny" db-relationship-path="XRESEND_USER"/>
+	<obj-relationship name="xSEND_ADAPTER" source="StatementHeader" target="SendAdapter" deleteRule="Nullify" db-relationship-path="XSEND_ADAPTER"/>
 	<obj-relationship name="xSOURCE" source="Transaction" target="Account" deleteRule="Nullify" db-relationship-path="XSOURCE"/>
 	<obj-relationship name="xTARGET" source="Transaction" target="Account" deleteRule="Nullify" db-relationship-path="XTARGET"/>
+	<obj-relationship name="xSOURCE" source="Transaction1" target="Account" deleteRule="Nullify" db-relationship-path="XSOURCE"/>
+	<obj-relationship name="xTARGET" source="Transaction1" target="Account" deleteRule="Nullify" db-relationship-path="XTARGET"/>
+	<obj-relationship name="authAdapters" source="Users" target="AuthAdapter" deleteRule="Deny" db-relationship-path="untitledRel4"/>
+	<obj-relationship name="customerAccounts" source="Users" target="CustomerAccount" deleteRule="Deny" db-relationship-path="untitledRel7"/>
+	<obj-relationship name="customerAccounts1" source="Users" target="CustomerAccount" deleteRule="Deny" db-relationship-path="untitledRel8"/>
+	<obj-relationship name="customers" source="Users" target="Customer" deleteRule="Deny" db-relationship-path="untitledRel5"/>
+	<obj-relationship name="customers1" source="Users" target="Customer" deleteRule="Deny" db-relationship-path="untitledRel6"/>
+	<obj-relationship name="settingss" source="Users" target="Settings" deleteRule="Deny" db-relationship-path="untitledRel3"/>
+	<obj-relationship name="statementHeader" source="Users" target="StatementHeader" deleteRule="Nullify" db-relationship-path="untitledRel"/>
+	<obj-relationship name="statementHeaders" source="Users" target="StatementHeader" deleteRule="Deny" db-relationship-path="untitledRel1"/>
+	<obj-relationship name="statementHeaders1" source="Users" target="StatementHeader" deleteRule="Deny" db-relationship-path="untitledRel2"/>
+	<obj-relationship name="xADAPTER" source="Users" target="AuthAdapter" deleteRule="Nullify" db-relationship-path="XADAPTER"/>
+	<obj-relationship name="xROLE" source="Users" target="Role" deleteRule="Nullify" db-relationship-path="XROLE"/>
 </data-map>
