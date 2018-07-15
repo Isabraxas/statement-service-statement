@@ -188,7 +188,7 @@
 		<db-attribute name="ROLE_ID" type="INTEGER" length="100"/>
 		<db-attribute name="USERNAME" type="VARCHAR" length="200"/>
 	</db-entity>
-	<obj-entity name="Account" className="com.viridian.service.statement.persistence.Account" dbEntityName="ACCOUNT">
+	<obj-entity name="Account" className="cc.viridian.service.statement.persistence.Account" dbEntityName="ACCOUNT">
 		<obj-attribute name="balance" type="java.math.BigDecimal" db-attribute-path="BALANCE"/>
 		<obj-attribute name="createDate" type="java.time.LocalDateTime" db-attribute-path="CREATE_DATE"/>
 		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
@@ -196,7 +196,7 @@
 		<obj-attribute name="lastname" type="java.lang.String" db-attribute-path="LASTNAME"/>
 		<obj-attribute name="number" type="java.lang.String" db-attribute-path="NUMBER"/>
 	</obj-entity>
-	<obj-entity name="AuthAdapter" className="com.viridian.service.statement.persistence.AuthAdapter" dbEntityName="AUTH_ADAPTER">
+	<obj-entity name="AuthAdapter" className="cc.viridian.service.statement.persistence.AuthAdapter" dbEntityName="AUTH_ADAPTER">
 		<obj-attribute name="adapterConfig" type="java.lang.String" db-attribute-path="ADAPTER_CONFIG"/>
 		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
 		<obj-attribute name="disabledDate" type="java.time.LocalDateTime" db-attribute-path="DISABLED_DATE"/>
@@ -204,10 +204,10 @@
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 		<obj-attribute name="pk" type="java.lang.String" db-attribute-path="PK"/>
 	</obj-entity>
-	<obj-entity name="Component" className="com.viridian.service.statement.persistence.Component" dbEntityName="COMPONENT">
+	<obj-entity name="Component" className="cc.viridian.service.statement.persistence.Component" dbEntityName="COMPONENT">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 	</obj-entity>
-	<obj-entity name="Customer" className="com.viridian.service.statement.persistence.Customer" dbEntityName="CUSTOMER">
+	<obj-entity name="Customer" className="cc.viridian.service.statement.persistence.Customer" dbEntityName="CUSTOMER">
 		<obj-attribute name="address" type="java.lang.String" db-attribute-path="ADDRESS"/>
 		<obj-attribute name="code" type="java.lang.String" db-attribute-path="CODE"/>
 		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
@@ -219,7 +219,7 @@
 		<obj-attribute name="pk" type="java.lang.String" db-attribute-path="PK"/>
 		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
 	</obj-entity>
-	<obj-entity name="CustomerAccount" className="com.viridian.service.statement.persistence.CustomerAccount" dbEntityName="CUSTOMER_ACCOUNT">
+	<obj-entity name="CustomerAccount" className="cc.viridian.service.statement.persistence.CustomerAccount" dbEntityName="CUSTOMER_ACCOUNT">
 		<obj-attribute name="accountCode" type="java.lang.String" db-attribute-path="ACCOUNT_CODE"/>
 		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
 		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
@@ -228,7 +228,7 @@
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
 	</obj-entity>
-	<obj-entity name="CustomerSendStatement" className="com.viridian.service.statement.persistence.CustomerSendStatement" dbEntityName="CUSTOMER_SEND_STATEMENT">
+	<obj-entity name="CustomerSendStatement" className="cc.viridian.service.statement.persistence.CustomerSendStatement" dbEntityName="CUSTOMER_SEND_STATEMENT">
 		<obj-attribute name="createdByUser" type="int" db-attribute-path="CREATED_BY_USER"/>
 		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
 		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
@@ -241,7 +241,7 @@
 		<obj-attribute name="totalExecutions" type="int" db-attribute-path="TOTAL_EXECUTIONS"/>
 		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
 	</obj-entity>
-	<obj-entity name="JobExecution" className="com.viridian.service.statement.persistence.JobExecution" dbEntityName="JOB_EXECUTION">
+	<obj-entity name="JobExecution" className="cc.viridian.service.statement.persistence.JobExecution" dbEntityName="JOB_EXECUTION">
 		<obj-attribute name="completed" type="boolean" db-attribute-path="COMPLETED"/>
 		<obj-attribute name="completedDate" type="java.time.LocalDateTime" db-attribute-path="COMPLETED_DATE"/>
 		<obj-attribute name="executionDate" type="java.time.LocalDateTime" db-attribute-path="EXECUTION_DATE"/>
@@ -252,7 +252,7 @@
 		<obj-attribute name="totalAccounts" type="int" db-attribute-path="TOTAL_ACCOUNTS"/>
 		<obj-attribute name="totalThreads" type="int" db-attribute-path="TOTAL_THREADS"/>
 	</obj-entity>
-	<obj-entity name="JobExecutionThread" className="com.viridian.service.statement.persistence.JobExecutionThread" dbEntityName="JOB_EXECUTION_THREAD">
+	<obj-entity name="JobExecutionThread" className="cc.viridian.service.statement.persistence.JobExecutionThread" dbEntityName="JOB_EXECUTION_THREAD">
 		<obj-attribute name="completed" type="boolean" db-attribute-path="COMPLETED"/>
 		<obj-attribute name="completedDate" type="java.time.LocalDateTime" db-attribute-path="COMPLETED_DATE"/>
 		<obj-attribute name="running" type="boolean" db-attribute-path="RUNNING"/>
@@ -263,15 +263,15 @@
 		<obj-attribute name="status" type="java.lang.String" db-attribute-path="STATUS"/>
 		<obj-attribute name="threadNumber" type="int" db-attribute-path="THREAD_NUMBER"/>
 	</obj-entity>
-	<obj-entity name="Permission" className="com.viridian.service.statement.persistence.Permission" dbEntityName="PERMISSION">
+	<obj-entity name="Permission" className="cc.viridian.service.statement.persistence.Permission" dbEntityName="PERMISSION">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 	</obj-entity>
-	<obj-entity name="Role" className="com.viridian.service.statement.persistence.Role" dbEntityName="ROLE">
+	<obj-entity name="Role" className="cc.viridian.service.statement.persistence.Role" dbEntityName="ROLE">
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 	</obj-entity>
-	<obj-entity name="RolePermission" className="com.viridian.service.statement.persistence.RolePermission" dbEntityName="ROLE_PERMISSION">
+	<obj-entity name="RolePermission" className="cc.viridian.service.statement.persistence.RolePermission" dbEntityName="ROLE_PERMISSION">
 	</obj-entity>
-	<obj-entity name="SendAdapter" className="com.viridian.service.statement.persistence.SendAdapter" dbEntityName="SEND_ADAPTER">
+	<obj-entity name="SendAdapter" className="cc.viridian.service.statement.persistence.SendAdapter" dbEntityName="SEND_ADAPTER">
 		<obj-attribute name="adapterConfig" type="java.lang.String" db-attribute-path="ADAPTER_CONFIG"/>
 		<obj-attribute name="createdByUser" type="int" db-attribute-path="CREATED_BY_USER"/>
 		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
@@ -281,13 +281,13 @@
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 		<obj-attribute name="pk" type="java.lang.String" db-attribute-path="PK"/>
 	</obj-entity>
-	<obj-entity name="Settings" className="com.viridian.service.statement.persistence.Settings" dbEntityName="SETTINGS">
+	<obj-entity name="Settings" className="cc.viridian.service.statement.persistence.Settings" dbEntityName="SETTINGS">
 		<obj-attribute name="connectionRetryNumber" type="int" db-attribute-path="CONNECTION_RETRY_NUMBER"/>
 		<obj-attribute name="executionTime" type="java.time.LocalTime" db-attribute-path="EXECUTION_TIME"/>
 		<obj-attribute name="totalThreads" type="int" db-attribute-path="TOTAL_THREADS"/>
 		<obj-attribute name="updatedDate" type="java.time.LocalDateTime" db-attribute-path="UPDATED_DATE"/>
 	</obj-entity>
-	<obj-entity name="StatementDetail" className="com.viridian.service.statement.persistence.StatementDetail" dbEntityName="STATEMENT_DETAIL">
+	<obj-entity name="StatementDetail" className="cc.viridian.service.statement.persistence.StatementDetail" dbEntityName="STATEMENT_DETAIL">
 		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
 		<obj-attribute name="debitCredit" type="java.lang.String" db-attribute-path="DEBIT_CREDIT"/>
 		<obj-attribute name="description" type="java.lang.String" db-attribute-path="DESCRIPTION"/>
@@ -297,7 +297,7 @@
 		<obj-attribute name="transactionId" type="java.lang.String" db-attribute-path="TRANSACTION_ID"/>
 		<obj-attribute name="transactionType" type="java.lang.String" db-attribute-path="TRANSACTION_TYPE"/>
 	</obj-entity>
-	<obj-entity name="StatementHeader" className="com.viridian.service.statement.persistence.StatementHeader" dbEntityName="STATEMENT_HEADER">
+	<obj-entity name="StatementHeader" className="cc.viridian.service.statement.persistence.StatementHeader" dbEntityName="STATEMENT_HEADER">
 		<obj-attribute name="account" type="java.lang.String" db-attribute-path="ACCOUNT"/>
 		<obj-attribute name="completed" type="boolean" db-attribute-path="COMPLETED"/>
 		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
@@ -314,7 +314,7 @@
 		<obj-attribute name="statementDate" type="java.time.LocalDateTime" db-attribute-path="STATEMENT_DATE"/>
 		<obj-attribute name="totalTransactions" type="int" db-attribute-path="TOTAL_TRANSACTIONS"/>
 	</obj-entity>
-	<obj-entity name="Transaction" className="com.viridian.service.statement.persistence.Transaction" dbEntityName="TRANSACTION">
+	<obj-entity name="Transaction" className="cc.viridian.service.statement.persistence.Transaction" dbEntityName="TRANSACTION">
 		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
 		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
 		<obj-attribute name="date" type="java.time.LocalDateTime" db-attribute-path="DATE"/>
@@ -323,7 +323,7 @@
 		<obj-attribute name="target" type="java.lang.String" db-attribute-path="TARGET"/>
 		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
 	</obj-entity>
-	<obj-entity name="Transaction1" className="com.viridian.service.statement.persistence.Transaction1" dbEntityName="TRANSACTION">
+	<obj-entity name="Transaction1" className="cc.viridian.service.statement.persistence.Transaction1" dbEntityName="TRANSACTION">
 		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
 		<obj-attribute name="currency" type="java.lang.String" db-attribute-path="CURRENCY"/>
 		<obj-attribute name="date" type="java.time.LocalDateTime" db-attribute-path="DATE"/>
@@ -332,7 +332,7 @@
 		<obj-attribute name="target" type="java.lang.String" db-attribute-path="TARGET"/>
 		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
 	</obj-entity>
-	<obj-entity name="Users" className="com.viridian.service.statement.persistence.Users" dbEntityName="USERS">
+	<obj-entity name="Users" className="cc.viridian.service.statement.persistence.Users" dbEntityName="USERS">
 		<obj-attribute name="createdByUser" type="int" db-attribute-path="CREATED_BY_USER"/>
 		<obj-attribute name="createdDate" type="java.time.LocalDateTime" db-attribute-path="CREATED_DATE"/>
 		<obj-attribute name="disabledByUser" type="int" db-attribute-path="DISABLED_BY_USER"/>
