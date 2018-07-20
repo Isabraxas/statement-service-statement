@@ -1,7 +1,5 @@
 package cc.viridian.service.statement.service;
 
-import cc.viridian.service.statement.persistence.Account;
-import cc.viridian.service.statement.persistence.Transaction;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.query.ObjectSelect;
@@ -19,6 +17,7 @@ import java.util.Map;
 import java.util.Random;
 
 @Component
+@Deprecated
 public class AccountService {
     private static final Logger log = LoggerFactory.getLogger(AccountService.class);
 
@@ -122,7 +121,7 @@ public class AccountService {
         String currency = random.nextInt(100) < 70 ? "1" : "2";
         String accountNumber = "" + (random.nextInt(800000) + 100000) + "0" + currency;
         accountNumber = addCheckDigit(accountNumber);
-
+/*
         Account account = context.newObject(Account.class);
         account.setNumber( accountNumber);
         if (currency.equals("1")) {
@@ -136,6 +135,7 @@ public class AccountService {
         account.setLastname( lastnames[random.nextInt(lastnames.length) ] );
         account.setCreateDate(LocalDateTime.now());
         context.commitChanges();
+*/
     }
 
     public Integer createAccounts(Integer quantity) {
@@ -147,6 +147,7 @@ public class AccountService {
         return quantity;
     }
 
+    /*
     private Account getRandomAccountWithBalance(ObjectContext context, int totalAccounts) throws Exception {
         Random random = new Random();
         int times = 0;
@@ -443,4 +444,6 @@ public class AccountService {
         return sb.toString();
 
     }
+
+    */
 }

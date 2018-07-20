@@ -144,4 +144,21 @@
 		<db-attribute name="SerNot_USR_CREATE" type="VARCHAR" length="40"/>
 		<db-attribute name="SerNot_USR_MODIFY" type="VARCHAR" length="40"/>
 	</db-entity>
+	<obj-entity name="StatementDetail" className="cc.viridian.service.statement.persistent.StatementDetail" dbEntityName="STATEMENT_DETAIL">
+		<obj-attribute name="accountCode" type="java.lang.String" db-attribute-path="ACCOUNT_CODE"/>
+		<obj-attribute name="accountCurrency" type="java.lang.String" db-attribute-path="ACCOUNT_CURRENCY"/>
+		<obj-attribute name="accountType" type="java.lang.String" db-attribute-path="ACCOUNT_TYPE"/>
+		<obj-attribute name="amount" type="java.math.BigDecimal" db-attribute-path="AMOUNT"/>
+		<obj-attribute name="annotation" type="java.lang.String" db-attribute-path="ANNOTATION"/>
+		<obj-attribute name="balance" type="java.math.BigDecimal" db-attribute-path="BALANCE"/>
+		<obj-attribute name="branchChannel" type="java.lang.String" db-attribute-path="BRANCH_CHANNEL"/>
+		<obj-attribute name="date" type="java.lang.String" db-attribute-path="DATE"/>
+		<obj-attribute name="debitCredit" type="java.lang.String" db-attribute-path="DEBIT_CREDIT"/>
+		<obj-attribute name="localDateTime" type="java.time.LocalDateTime" db-attribute-path="LOCAL_DATE_TIME"/>
+		<obj-attribute name="referenceNumber" type="java.lang.String" db-attribute-path="REFERENCE_NUMBER"/>
+		<obj-attribute name="secondaryInfo" type="java.lang.String" db-attribute-path="SECONDARY_INFO"/>
+		<obj-attribute name="transactionCode" type="java.lang.String" db-attribute-path="TRANSACTION_CODE"/>
+		<obj-attribute name="transactionDesc" type="java.lang.String" db-attribute-path="TRANSACTION_DESC"/>
+		<obj-attribute name="trnId" type="java.lang.String" db-attribute-path="TRN_ID"/>
+	</obj-entity>
 </data-map>

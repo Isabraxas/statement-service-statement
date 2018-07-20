@@ -14,6 +14,7 @@ public class AccountController {
     @Autowired
     AccountService accountService;
 
+    /*
     @RequestMapping("/account")
     //public  List<Account> listAccounts(
     public  String listAccounts(
@@ -57,5 +58,5 @@ public class AccountController {
         return accountService.createMta(number);
     }
 
-
+    */
 }
