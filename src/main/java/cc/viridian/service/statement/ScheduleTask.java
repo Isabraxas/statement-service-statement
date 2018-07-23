@@ -15,11 +15,11 @@ public class ScheduleTask {
         long now = System.currentTimeMillis() / 1000;
         System.out.println("Current Thread : " +  Thread.currentThread().getName());
 
-        Statement statement = ScheduleService.getInstance().getRandomStatement();
+        //Statement statement = ScheduleService.getInstance().getRandomStatement();
 
-        System.out.println( statement);
-        System.out.println( statement.getHeader());
-        System.out.println( statement.getDetails());
+        //System.out.println( statement);
+        //System.out.println( statement.getHeader());
+        //System.out.println( statement.getDetails());
 
     }
 }

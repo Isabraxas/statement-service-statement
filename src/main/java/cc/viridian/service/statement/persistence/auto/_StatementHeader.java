@@ -1,4 +1,4 @@
-package cc.viridian.service.statement.persistent.auto;
+package cc.viridian.service.statement.persistence.auto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

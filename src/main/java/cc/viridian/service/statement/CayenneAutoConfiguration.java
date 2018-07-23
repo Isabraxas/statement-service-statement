@@ -33,8 +33,9 @@ public class CayenneAutoConfiguration {
         @Bean
         public ServerRuntime mainServerRuntime() {
 
+            url = "jdbc:postgresql://localhost:5432/demo";
             ServerRuntime serverRuntime = ServerRuntime.builder()
-                .addConfig("persistence/cayenne-project.xml")
+                .addConfig("persistence/cayenne-statement.xml")
                 .jdbcDriver( jdbcDriver)
                 .url(url)
                 .user(user)

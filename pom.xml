@@ -39,6 +39,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
         <dependency>
             <groupId>org.apache.cayenne</groupId>
             <artifactId>cayenne-server</artifactId>
@@ -59,16 +65,9 @@
 		<dependency>
 			<artifactId>core-bank-provider</artifactId>
 			<groupId>cc.viridian</groupId>
-			<version>0.0.3</version>
-            <scope>system</scope>
-			<systemPath>${basedir}/../CoreBankServiceProvider/target/core-bank-provider-0.0.3.jar</systemPath>
+			<version>0.0.4</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -95,4 +94,15 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>minipc2-releases</name>
+            <!--
+			<url>http://minipc2:8081/artifactory/libs-release</url>
+			-->
+            <url>http://e190fb34.ngrok.io/artifactory/libs-release</url>
+		</repository>
+
+	</repositories>
 </project>
