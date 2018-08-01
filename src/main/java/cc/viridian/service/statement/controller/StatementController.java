@@ -14,9 +14,6 @@ import java.util.List;
 public class StatementController {
 
     @Autowired
-    ServerRuntime mainServerRuntime;
-
-    @Autowired
     StatementService statementService;
 
     @RequestMapping(method = RequestMethod.POST, value="/account")
