@@ -4,3 +4,6 @@ eureka:
     hostname: localhost
 
 
+database:
+  url: http://x.com
+

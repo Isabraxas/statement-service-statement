@@ -26,6 +26,7 @@ public class StatementService {
         String accountCurrency = body.getCurrency();
         String accountNumber = body.getAccount();
         String accountType = body.getType();
+        String frequency = body.getFrequency();
 
         ObjectContext context = mainServerRuntime.newContext();
         StatementMain statementMain = context.newObject(StatementMain.class);
@@ -36,7 +37,7 @@ public class StatementService {
         statementMain.setCustomerCode(accountNumber.substring(0,6));
         statementMain.setCustomerName("name");
         statementMain.setEnabled(true);
-        statementMain.setFrequency("DAILY");
+        statementMain.setFrequency(frequency);
         statementMain.setOverwrittenByBank(false);
         statementMain.setTimeCreate(LocalDateTime.now());
         statementMain.setTimeModify(LocalDateTime.now());

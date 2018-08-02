@@ -5,6 +5,7 @@ public class PostRegisterAccount {
     private String account;
     private String currency;
     private String type;
+    private String frequency;
 
     public String getAccount() {
         return account;
@@ -34,9 +35,18 @@ public class PostRegisterAccount {
 
     }
 
-    public PostRegisterAccount(String account, String currency, String type) {
+    public String getFrequency() {
+        return frequency;
+    }
+
+    public void setFrequency(String frequency) {
+        this.frequency = frequency;
+    }
+
+    public PostRegisterAccount(String account, String currency, String type, String frequency) {
         this.account = account;
         this.currency = currency;
         this.type = type;
+        this.frequency = frequency;
     }
 }
