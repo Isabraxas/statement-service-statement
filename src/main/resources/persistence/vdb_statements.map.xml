@@ -83,7 +83,7 @@
 		<db-attribute name="ENABLED" type="BOOLEAN"/>
 		<db-attribute name="FK_FORMAT" type="INTEGER"/>
 		<db-attribute name="FK_SEND" type="INTEGER"/>
-		<db-attribute name="FREQUENCY" type="CHAR" length="5"/>
+		<db-attribute name="FREQUENCY" type="CHAR" length="10"/>
 		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
 		<db-attribute name="OVERWRITTEN_BY_BANK" type="BOOLEAN"/>
 		<db-attribute name="TIME_CREATE" type="TIMESTAMP"/>
