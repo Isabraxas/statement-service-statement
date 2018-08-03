@@ -14,4 +14,11 @@ public class PostRegisterAccount {
     private String currency;
     private String type;
     private String frequency;
+    private String customerCode;
+    private String customerName;
+
+    private String recipient;
+    private String formatAdapter;
+    private String sendAdapter;
+    private String coreBankAdapter;
 }

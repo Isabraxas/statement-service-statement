@@ -20,13 +20,15 @@ public abstract class _StatementMain extends CayenneDataObject {
     public static final Property<String> ACCOUNT_CODE = Property.create("accountCode", String.class);
     public static final Property<String> ACCOUNT_CURRENCY = Property.create("accountCurrency", String.class);
     public static final Property<String> ACCOUNT_TYPE = Property.create("accountType", String.class);
+    public static final Property<String> ADAPTER_COREBANK = Property.create("adapterCorebank", String.class);
+    public static final Property<String> ADAPTER_FORMAT = Property.create("adapterFormat", String.class);
+    public static final Property<String> ADAPTER_SEND = Property.create("adapterSend", String.class);
     public static final Property<String> CUSTOMER_CODE = Property.create("customerCode", String.class);
     public static final Property<String> CUSTOMER_NAME = Property.create("customerName", String.class);
     public static final Property<Boolean> ENABLED = Property.create("enabled", Boolean.class);
-    public static final Property<Integer> FK_FORMAT = Property.create("fkFormat", Integer.class);
-    public static final Property<Integer> FK_SEND = Property.create("fkSend", Integer.class);
     public static final Property<String> FREQUENCY = Property.create("frequency", String.class);
     public static final Property<Boolean> OVERWRITTEN_BY_BANK = Property.create("overwrittenByBank", Boolean.class);
+    public static final Property<String> SEND_RECIPIENT = Property.create("sendRecipient", String.class);
     public static final Property<LocalDateTime> TIME_CREATE = Property.create("timeCreate", LocalDateTime.class);
     public static final Property<LocalDateTime> TIME_MODIFY = Property.create("timeModify", LocalDateTime.class);
     public static final Property<String> USR_CREATE = Property.create("usrCreate", String.class);
@@ -53,6 +55,27 @@ public abstract class _StatementMain extends CayenneDataObject {
         return (String)readProperty("accountType");
     }
 
+    public void setAdapterCorebank(String adapterCorebank) {
+        writeProperty("adapterCorebank", adapterCorebank);
+    }
+    public String getAdapterCorebank() {
+        return (String)readProperty("adapterCorebank");
+    }
+
+    public void setAdapterFormat(String adapterFormat) {
+        writeProperty("adapterFormat", adapterFormat);
+    }
+    public String getAdapterFormat() {
+        return (String)readProperty("adapterFormat");
+    }
+
+    public void setAdapterSend(String adapterSend) {
+        writeProperty("adapterSend", adapterSend);
+    }
+    public String getAdapterSend() {
+        return (String)readProperty("adapterSend");
+    }
+
     public void setCustomerCode(String customerCode) {
         writeProperty("customerCode", customerCode);
     }
@@ -75,22 +98,6 @@ public abstract class _StatementMain extends CayenneDataObject {
         return (value != null) ? value.booleanValue() : false;
     }
 
-    public void setFkFormat(int fkFormat) {
-        writeProperty("fkFormat", fkFormat);
-    }
-    public int getFkFormat() {
-        Object value = readProperty("fkFormat");
-        return (value != null) ? (Integer) value : 0;
-    }
-
-    public void setFkSend(int fkSend) {
-        writeProperty("fkSend", fkSend);
-    }
-    public int getFkSend() {
-        Object value = readProperty("fkSend");
-        return (value != null) ? (Integer) value : 0;
-    }
-
     public void setFrequency(String frequency) {
         writeProperty("frequency", frequency);
     }
@@ -104,6 +111,13 @@ public abstract class _StatementMain extends CayenneDataObject {
 	public boolean isOverwrittenByBank() {
         Boolean value = (Boolean)readProperty("overwrittenByBank");
         return (value != null) ? value.booleanValue() : false;
+    }
+
+    public void setSendRecipient(String sendRecipient) {
+        writeProperty("sendRecipient", sendRecipient);
+    }
+    public String getSendRecipient() {
+        return (String)readProperty("sendRecipient");
     }
 
     public void setTimeCreate(LocalDateTime timeCreate) {

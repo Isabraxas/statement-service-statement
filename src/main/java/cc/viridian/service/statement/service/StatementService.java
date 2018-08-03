@@ -33,13 +33,13 @@ public class StatementService {
         ObjectContext context = mainServerRuntime.newContext();
         StatementMain statementMain = context.newObject(StatementMain.class);
 
-        statementMain.setAccountCode(accountNumber);
-        statementMain.setAccountCurrency(accountCurrency);
-        statementMain.setAccountType(accountType);
-        statementMain.setCustomerCode(accountNumber.substring(0,6));
-        statementMain.setCustomerName("name");
+        statementMain.setAccountCode(body.getAccount());
+        statementMain.setAccountCurrency(body.getCurrency());
+        statementMain.setAccountType(body.getType());
+        statementMain.setCustomerCode(body.getCustomerCode());
+        statementMain.setCustomerName(body.getCustomerName());
         statementMain.setEnabled(true);
-        statementMain.setFrequency(frequency);
+        statementMain.setFrequency(body.getFrequency());
         statementMain.setOverwrittenByBank(false);
         statementMain.setTimeCreate(LocalDateTime.now());
         statementMain.setTimeModify(LocalDateTime.now());

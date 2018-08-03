@@ -83,11 +83,12 @@
 		<db-attribute name="ACCOUNT_CODE" type="VARCHAR" length="20"/>
 		<db-attribute name="ACCOUNT_CURRENCY" type="CHAR" length="3"/>
 		<db-attribute name="ACCOUNT_TYPE" type="VARCHAR" length="20"/>
+		<db-attribute name="ADAPTER_COREBANK" type="VARCHAR" length="20"/>
+		<db-attribute name="ADAPTER_FORMAT" type="VARCHAR" length="20"/>
+		<db-attribute name="ADAPTER_SEND" type="VARCHAR" length="20"/>
 		<db-attribute name="CUSTOMER_CODE" type="VARCHAR" length="20"/>
 		<db-attribute name="CUSTOMER_NAME" type="VARCHAR" length="200"/>
 		<db-attribute name="ENABLED" type="BOOLEAN"/>
-		<db-attribute name="FK_FORMAT" type="INTEGER"/>
-		<db-attribute name="FK_SEND" type="INTEGER"/>
 		<db-attribute name="FREQUENCY" type="CHAR" length="10"/>
 		<db-attribute name="ID" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
 		<db-attribute name="OVERWRITTEN_BY_BANK" type="BOOLEAN"/>
@@ -155,11 +156,11 @@
 		<obj-attribute name="errorSendCode" type="int" db-attribute-path="ERROR_SEND_CODE"/>
 		<obj-attribute name="errorSendDesc" type="java.lang.String" db-attribute-path="ERROR_SEND_DESC"/>
 		<obj-attribute name="fkFormat" type="int" db-attribute-path="FK_FORMAT"/>
+		<obj-attribute name="fkSend" type="int" db-attribute-path="FK_SEND"/>
 		<obj-attribute name="frequency" type="java.lang.String" db-attribute-path="FREQUENCY"/>
 		<obj-attribute name="localDateTime" type="java.time.LocalDateTime" db-attribute-path="LOCAL_DATE_TIME"/>
 		<obj-attribute name="processDate" type="java.lang.String" db-attribute-path="PROCESS_DATE"/>
 		<obj-attribute name="retryNumber" type="int" db-attribute-path="RETRY_NUMBER"/>
-		<obj-attribute name="sendId" type="int" db-attribute-path="FK_SEND"/>
 		<obj-attribute name="sendRecipient" type="java.lang.String" db-attribute-path="SEND_RECIPIENT"/>
 		<obj-attribute name="serviceStaId" type="int" db-attribute-path="SERVICE_STA_ID"/>
 		<obj-attribute name="status" type="java.lang.String" db-attribute-path="STATUS"/>
@@ -171,13 +172,15 @@
 		<obj-attribute name="accountCode" type="java.lang.String" db-attribute-path="ACCOUNT_CODE"/>
 		<obj-attribute name="accountCurrency" type="java.lang.String" db-attribute-path="ACCOUNT_CURRENCY"/>
 		<obj-attribute name="accountType" type="java.lang.String" db-attribute-path="ACCOUNT_TYPE"/>
+		<obj-attribute name="adapterCorebank" type="java.lang.String" db-attribute-path="ADAPTER_COREBANK"/>
+		<obj-attribute name="adapterFormat" type="java.lang.String" db-attribute-path="ADAPTER_FORMAT"/>
+		<obj-attribute name="adapterSend" type="java.lang.String" db-attribute-path="ADAPTER_SEND"/>
 		<obj-attribute name="customerCode" type="java.lang.String" db-attribute-path="CUSTOMER_CODE"/>
 		<obj-attribute name="customerName" type="java.lang.String" db-attribute-path="CUSTOMER_NAME"/>
 		<obj-attribute name="enabled" type="boolean" db-attribute-path="ENABLED"/>
-		<obj-attribute name="fkFormat" type="int" db-attribute-path="FK_FORMAT"/>
-		<obj-attribute name="fkSend" type="int" db-attribute-path="FK_SEND"/>
 		<obj-attribute name="frequency" type="java.lang.String" db-attribute-path="FREQUENCY"/>
 		<obj-attribute name="overwrittenByBank" type="boolean" db-attribute-path="OVERWRITTEN_BY_BANK"/>
+		<obj-attribute name="sendRecipient" type="java.lang.String" db-attribute-path="SEND_RECIPIENT"/>
 		<obj-attribute name="timeCreate" type="java.time.LocalDateTime" db-attribute-path="TIME_CREATE"/>
 		<obj-attribute name="timeModify" type="java.time.LocalDateTime" db-attribute-path="TIME_MODIFY"/>
 		<obj-attribute name="usrCreate" type="java.lang.String" db-attribute-path="USR_CREATE"/>
