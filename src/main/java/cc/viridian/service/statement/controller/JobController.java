@@ -29,4 +29,14 @@ public class JobController {
     ) {
         return jobService.listJobs(start, length);
     }
+
+    @RequestMapping(method = RequestMethod.POST, value="/job/single")
+    @ResponseBody
+    public String processSingleJob(
+        @RequestBody PostRegisterJob body)
+    {
+        return jobService.registerNewJob(body);
+    }
+
+
 }

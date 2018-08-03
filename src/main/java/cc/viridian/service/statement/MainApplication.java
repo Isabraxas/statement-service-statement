@@ -13,6 +13,7 @@ public class MainApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
 
+		//sandbox
         Statement statement = ScheduleService.getInstance().getRandomStatement();
 
         System.out.println( statement);

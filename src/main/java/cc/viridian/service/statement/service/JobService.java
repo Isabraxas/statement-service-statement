@@ -2,7 +2,6 @@ package cc.viridian.service.statement.service;
 
 import cc.viridian.service.statement.payload.*;
 import cc.viridian.service.statement.persistence.StatementJob;
-import cc.viridian.service.statement.persistence.StatementMain;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.query.EJBQLQuery;
