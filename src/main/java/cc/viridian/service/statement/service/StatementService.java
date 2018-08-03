@@ -4,20 +4,21 @@ import cc.viridian.service.statement.payload.AccountsRegistered;
 import cc.viridian.service.statement.payload.ListAccountsResponse;
 import cc.viridian.service.statement.payload.PostRegisterAccount;
 import cc.viridian.service.statement.persistence.StatementMain;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.query.EJBQLQuery;
 import org.apache.cayenne.query.ObjectSelect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.*;
 
+@Slf4j
+@NoArgsConstructor
 @Component
 public class StatementService {
-    private static final Logger log = LoggerFactory.getLogger(StatementService.class);
 
     @Autowired
     ServerRuntime mainServerRuntime;

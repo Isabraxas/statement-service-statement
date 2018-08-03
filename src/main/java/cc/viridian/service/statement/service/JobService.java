@@ -2,12 +2,12 @@ package cc.viridian.service.statement.service;
 
 import cc.viridian.service.statement.payload.*;
 import cc.viridian.service.statement.persistence.StatementJob;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.query.EJBQLQuery;
 import org.apache.cayenne.query.ObjectSelect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
@@ -15,9 +15,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+@Slf4j
+@NoArgsConstructor
 @Component
 public class JobService {
-    private static final Logger log = LoggerFactory.getLogger(JobService.class);
 
     @Autowired
     ServerRuntime mainServerRuntime;

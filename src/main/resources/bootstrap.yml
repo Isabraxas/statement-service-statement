@@ -2,7 +2,7 @@ spring:
   application:
     name: statement
   profiles:
-    active: local
+    active: localx
   cloud:
     config:
       uri: http://electron.viridian.cc:19002

@@ -3,7 +3,3 @@ eureka:
     appname: statement
     hostname: localhost
 
-
-database:
-  url: http://x.com
-

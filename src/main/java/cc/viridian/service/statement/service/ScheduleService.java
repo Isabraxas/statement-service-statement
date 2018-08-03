@@ -2,21 +2,19 @@ package cc.viridian.service.statement.service;
 
 import cc.viridian.provider.CoreBankProvider;
 import cc.viridian.provider.model.Statement;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDate;
 import java.util.Random;
 
+@Slf4j
+@NoArgsConstructor
 public class ScheduleService {
-    private static final Logger log = LoggerFactory.getLogger(ScheduleService.class);
 
     private static ScheduleService instance = new ScheduleService();
 
     public static ScheduleService getInstance() {
         return instance;
-    }
-
-    private ScheduleService() {
     }
 
     public Statement getRandomStatement() {
