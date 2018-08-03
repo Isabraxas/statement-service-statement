@@ -23,7 +23,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<dependencies>
@@ -102,10 +102,7 @@
 		<repository>
 			<id>central</id>
 			<name>minipc2-releases</name>
-            <!--
 			<url>http://minipc2:8081/artifactory/libs-release</url>
-			-->
-            <url>http://e190fb34.ngrok.io/artifactory/libs-release</url>
 		</repository>
 
 	</repositories>

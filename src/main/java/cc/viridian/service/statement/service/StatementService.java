@@ -24,6 +24,7 @@ public class StatementService {
     ServerRuntime mainServerRuntime;
 
     public String registerNewAccount(PostRegisterAccount body) {
+
         String accountCurrency = body.getCurrency();
         String accountNumber = body.getAccount();
         String accountType = body.getType();
@@ -66,7 +67,6 @@ public class StatementService {
         while (it.hasNext()) {
             accountsRegistered.add(new AccountsRegistered(it.next()) );
         }
-
 
         ListAccountsResponse response = new ListAccountsResponse();
         response.setData(accountsRegistered);

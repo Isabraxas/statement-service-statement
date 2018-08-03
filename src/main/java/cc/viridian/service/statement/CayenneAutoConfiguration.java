@@ -1,6 +1,5 @@
 package cc.viridian.service.statement;
 
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.springframework.beans.factory.annotation.Value;

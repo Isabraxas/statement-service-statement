@@ -18,10 +18,14 @@ public abstract class _StatementJob extends CayenneDataObject {
     public static final String ID_PK_COLUMN = "ID";
 
     public static final Property<String> ACCOUNT_CODE = Property.create("accountCode", String.class);
+    public static final Property<String> ACCOUNT_CURRENCY = Property.create("accountCurrency", String.class);
+    public static final Property<String> ACCOUNT_TYPE = Property.create("accountType", String.class);
+    public static final Property<String> CUSTOMER_CODE = Property.create("customerCode", String.class);
     public static final Property<Integer> ERROR_BANK_CODE = Property.create("errorBankCode", Integer.class);
     public static final Property<String> ERROR_BANK_DESC = Property.create("errorBankDesc", String.class);
     public static final Property<Integer> ERROR_SEND_CODE = Property.create("errorSendCode", Integer.class);
     public static final Property<String> ERROR_SEND_DESC = Property.create("errorSendDesc", String.class);
+    public static final Property<Integer> FK_FORMAT = Property.create("fkFormat", Integer.class);
     public static final Property<String> FREQUENCY = Property.create("frequency", String.class);
     public static final Property<LocalDateTime> LOCAL_DATE_TIME = Property.create("localDateTime", LocalDateTime.class);
     public static final Property<String> PROCESS_DATE = Property.create("processDate", String.class);
@@ -30,6 +34,7 @@ public abstract class _StatementJob extends CayenneDataObject {
     public static final Property<String> SEND_RECIPIENT = Property.create("sendRecipient", String.class);
     public static final Property<Integer> SERVICE_STA_ID = Property.create("serviceStaId", Integer.class);
     public static final Property<String> STATUS = Property.create("status", String.class);
+    public static final Property<LocalDateTime> TIME_CREATE_JOB = Property.create("timeCreateJob", LocalDateTime.class);
     public static final Property<LocalDateTime> TIME_END_JOB = Property.create("timeEndJob", LocalDateTime.class);
     public static final Property<LocalDateTime> TIME_START_JOB = Property.create("timeStartJob", LocalDateTime.class);
 
@@ -38,6 +43,27 @@ public abstract class _StatementJob extends CayenneDataObject {
     }
     public String getAccountCode() {
         return (String)readProperty("accountCode");
+    }
+
+    public void setAccountCurrency(String accountCurrency) {
+        writeProperty("accountCurrency", accountCurrency);
+    }
+    public String getAccountCurrency() {
+        return (String)readProperty("accountCurrency");
+    }
+
+    public void setAccountType(String accountType) {
+        writeProperty("accountType", accountType);
+    }
+    public String getAccountType() {
+        return (String)readProperty("accountType");
+    }
+
+    public void setCustomerCode(String customerCode) {
+        writeProperty("customerCode", customerCode);
+    }
+    public String getCustomerCode() {
+        return (String)readProperty("customerCode");
     }
 
     public void setErrorBankCode(int errorBankCode) {
@@ -68,6 +94,14 @@ public abstract class _StatementJob extends CayenneDataObject {
     }
     public String getErrorSendDesc() {
         return (String)readProperty("errorSendDesc");
+    }
+
+    public void setFkFormat(int fkFormat) {
+        writeProperty("fkFormat", fkFormat);
+    }
+    public int getFkFormat() {
+        Object value = readProperty("fkFormat");
+        return (value != null) ? (Integer) value : 0;
     }
 
     public void setFrequency(String frequency) {
@@ -127,6 +161,13 @@ public abstract class _StatementJob extends CayenneDataObject {
     }
     public String getStatus() {
         return (String)readProperty("status");
+    }
+
+    public void setTimeCreateJob(LocalDateTime timeCreateJob) {
+        writeProperty("timeCreateJob", timeCreateJob);
+    }
+    public LocalDateTime getTimeCreateJob() {
+        return (LocalDateTime)readProperty("timeCreateJob");
     }
 
     public void setTimeEndJob(LocalDateTime timeEndJob) {

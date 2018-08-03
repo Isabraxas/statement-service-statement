@@ -23,33 +23,6 @@ public class JobService {
     @Autowired
     ServerRuntime mainServerRuntime;
 
-    public String registerNewJob(PostRegisterJob body) {
-        //String accountCurrency = body.getCurrency();
-        String accountNumber = "abc"; //body.getAccount();
-        //String accountType = body.getType();
-
-        ObjectContext context = mainServerRuntime.newContext();
-        StatementJob statementJob = context.newObject(StatementJob.class);
-
-        statementJob.setAccountCode(accountNumber);
-        statementJob.setErrorBankCode(0);
-        statementJob.setErrorBankDesc("description");
-        statementJob.setErrorSendCode(0);
-        statementJob.setErrorSendDesc("send description");
-        statementJob.setFrequency("DAI");
-        statementJob.setLocalDateTime(LocalDateTime.now());
-        statementJob.setProcessDate("201802");
-        statementJob.setRetryNumber(0);
-        statementJob.setSendId(0);
-        statementJob.setStatus("open");
-        statementJob.setTimeEndJob(null);
-        statementJob.setTimeStartJob(null);
-
-        context.commitChanges();
-        return accountNumber;
-    }
-
-
     public ListJobsResponse listJobs(Integer start, Integer length)
     {
         ObjectContext context = mainServerRuntime.newContext();
@@ -86,5 +59,33 @@ public class JobService {
 
         return result.get(0);
     }
+
+    public String registerSingleJob(PostRegisterJob body) {
+        String accountCurrency = body.getCurrency();
+        String accountNumber = body.getAccount();
+        String accountType = body.getType();
+        String frequency = body.getFrequency();
+
+        ObjectContext context = mainServerRuntime.newContext();
+        StatementJob statementJob = context.newObject(StatementJob.class);
+
+        statementJob.setAccountCode(accountNumber);
+        statementJob.setErrorBankCode(0);
+        statementJob.setErrorBankDesc("description");
+        statementJob.setErrorSendCode(0);
+        statementJob.setErrorSendDesc("send description");
+        statementJob.setFrequency("DAI");
+        statementJob.setLocalDateTime(LocalDateTime.now());
+        statementJob.setProcessDate("201802");
+        statementJob.setRetryNumber(0);
+        statementJob.setSendId(0);
+        statementJob.setStatus("open");
+        statementJob.setTimeEndJob(null);
+        statementJob.setTimeStartJob(null);
+
+        context.commitChanges();
+        return accountNumber;
+    }
+
 
 }

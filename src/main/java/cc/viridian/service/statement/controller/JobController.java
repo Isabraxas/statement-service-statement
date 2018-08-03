@@ -19,7 +19,7 @@ public class JobController {
     public String registerNewJob(
         @RequestBody PostRegisterJob body)
     {
-        return jobService.registerNewJob(body);
+        return jobService.registerSingleJob(body);
     }
 
     @RequestMapping("/job")
@@ -35,7 +35,7 @@ public class JobController {
     public String processSingleJob(
         @RequestBody PostRegisterJob body)
     {
-        return jobService.registerNewJob(body);
+        return jobService.registerSingleJob(body);
     }
 
 
