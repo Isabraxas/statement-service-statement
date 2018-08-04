@@ -13,5 +13,5 @@ import java.util.List;
 public class ListJobsResponse {
     private Long recordsTotal;
     private Long recordsFiltered;
-    private List<Jobs> data;
+    private List<ListJobs> data;
 }

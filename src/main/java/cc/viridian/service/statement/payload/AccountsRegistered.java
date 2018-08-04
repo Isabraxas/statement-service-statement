@@ -22,9 +22,11 @@ public class AccountsRegistered {
     private String accountType;
     private String customerCode;
     private String customerName;
+    private String recipient;
     private Boolean enabled;
-    private Integer fkFormat;
-    private Integer fkSend;
+    private String formatAdapter;
+    private String sendAdapter;
+    private String corebankAdapter;
     private String frequency;
     private Boolean overwrittenByBank;
     private LocalDateTime timeCreate;
@@ -40,9 +42,11 @@ public class AccountsRegistered {
         accountType = statementMain.getAccountType();
         customerCode = statementMain.getCustomerCode();
         customerName = statementMain.getCustomerName();
+        recipient = statementMain.getSendRecipient();
         enabled = statementMain.isEnabled();
-        fkFormat = statementMain.getFkFormat();
-        fkSend = statementMain.getFkSend();
+        formatAdapter = statementMain.getAdapterFormat();
+        corebankAdapter = statementMain.getAdapterCorebank();
+        sendAdapter = statementMain.getAdapterSend();
         frequency = statementMain.getFrequency();
         overwrittenByBank = statementMain.isOverwrittenByBank();
         timeCreate = statementMain.getTimeCreate();

@@ -4,16 +4,19 @@ import cc.viridian.service.statement.payload.*;
 import cc.viridian.service.statement.persistence.StatementJob;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.cayenne.Cayenne;
 import org.apache.cayenne.ObjectContext;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.query.EJBQLQuery;
 import org.apache.cayenne.query.ObjectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @NoArgsConstructor
@@ -22,6 +25,9 @@ public class JobService {
 
     @Autowired
     ServerRuntime mainServerRuntime;
+
+    @Autowired
+    private KafkaTemplate<String, JobTemplate> kafkaTemplate;
 
     public ListJobsResponse listJobs(Integer start, Integer length)
     {
@@ -33,11 +39,11 @@ public class JobService {
             .offset(start)
             .select(context);
 
-        List<Jobs> jobsRegistered = new ArrayList<>();
+        List<ListJobs> jobsRegistered = new ArrayList<>();
 
         Iterator<StatementJob> it = jobs.iterator();
         while (it.hasNext()) {
-            jobsRegistered.add(new Jobs(it.next()) );
+            jobsRegistered.add(new ListJobs(it.next()) );
         }
 
         ListJobsResponse response = new ListJobsResponse();
@@ -61,31 +67,66 @@ public class JobService {
     }
 
     public String registerSingleJob(PostRegisterJob body) {
-        String accountCurrency = body.getCurrency();
-        String accountNumber = body.getAccount();
-        String accountType = body.getType();
-        String frequency = body.getFrequency();
+
+
+        //save in database
+        //place in kafka
 
         ObjectContext context = mainServerRuntime.newContext();
         StatementJob statementJob = context.newObject(StatementJob.class);
 
-        statementJob.setAccountCode(accountNumber);
+        statementJob.setAccountCode(body.getAccount());
+        statementJob.setAccountCurrency(body.getCurrency());
+        statementJob.setAccountType(body.getType());
+        statementJob.setFrequency(body.getFrequency());
+        statementJob.setCustomerCode(body.getCustomerCode());
+        statementJob.setSendRecipient(body.getRecipient());
+        statementJob.setAdapterCorebank(body.getCoreBankAdapter());
+        statementJob.setAdapterFormat(body.getFormatAdapter());
+        statementJob.setAdapterSend(body.getSendAdapter());
+
         statementJob.setErrorBankCode(0);
-        statementJob.setErrorBankDesc("description");
+        statementJob.setErrorBankDesc("");
         statementJob.setErrorSendCode(0);
-        statementJob.setErrorSendDesc("send description");
-        statementJob.setFrequency("DAI");
+        statementJob.setErrorSendDesc("");
+
         statementJob.setLocalDateTime(LocalDateTime.now());
-        statementJob.setProcessDate("201802");
+        statementJob.setProcessDate("201807"); //todo: fix
         statementJob.setRetryNumber(0);
-        statementJob.setSendId(0);
-        statementJob.setStatus("open");
+        statementJob.setStatus("OPEN");
+
+        statementJob.setTimeCreateJob(LocalDateTime.now());
         statementJob.setTimeEndJob(null);
         statementJob.setTimeStartJob(null);
 
         context.commitChanges();
-        return accountNumber;
+        String id = Cayenne.pkForObject(statementJob).toString();
+
+
+        JobTemplate jobTemplate = new JobTemplate(statementJob);
+
+        Message<JobTemplate> message = MessageBuilder
+            .withPayload(jobTemplate)
+            .setHeader(KafkaHeaders.MESSAGE_KEY, id)
+            .build();
+
+        kafkaTemplate.send(message);
+
+        return body.getAccount();
     }
+
+    /*
+    private KafkaMessageListenerContainer<Integer, String> createContainer(
+        ContainerProperties containerProps) {
+        Map<String, Object> props = consumerProps();
+        DefaultKafkaConsumerFactory<Integer, String> cf =
+            new DefaultKafkaConsumerFactory<Integer, String>(props);
+        KafkaMessageListenerContainer<Integer, String> container =
+            new KafkaMessageListenerContainer<>(cf, containerProps);
+        return container;
+    }
+    */
+
 
 
 }

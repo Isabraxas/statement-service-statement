@@ -25,11 +25,6 @@ public class StatementService {
 
     public String registerNewAccount(PostRegisterAccount body) {
 
-        String accountCurrency = body.getCurrency();
-        String accountNumber = body.getAccount();
-        String accountType = body.getType();
-        String frequency = body.getFrequency();
-
         ObjectContext context = mainServerRuntime.newContext();
         StatementMain statementMain = context.newObject(StatementMain.class);
 
@@ -40,6 +35,10 @@ public class StatementService {
         statementMain.setCustomerName(body.getCustomerName());
         statementMain.setEnabled(true);
         statementMain.setFrequency(body.getFrequency());
+        statementMain.setSendRecipient(body.getRecipient());
+        statementMain.setAdapterCorebank(body.getCoreBankAdapter());
+        statementMain.setAdapterFormat(body.getFormatAdapter());
+        statementMain.setAdapterSend(body.getSendAdapter());
         statementMain.setOverwrittenByBank(false);
         statementMain.setTimeCreate(LocalDateTime.now());
         statementMain.setTimeModify(LocalDateTime.now());
@@ -47,7 +46,7 @@ public class StatementService {
         statementMain.setUsrModify("user1");
 
         context.commitChanges();
-        return accountNumber;
+        return body.getAccount();
     }
 
 

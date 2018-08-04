@@ -13,15 +13,14 @@ import java.util.Map;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Jobs {
+public class ListJobs {
 
     private String id;
 
     private String accountCode;
-    //private String accountCurrency;
-    //private String accountType;
-    //private String customerCode;
-    //private String customerName;
+    private String accountCurrency;
+    private String accountType;
+    private String customerCode;
     private Integer errorBankCode;
     private String errorBankDesc;
     private Integer errorSendCode;
@@ -30,14 +29,20 @@ public class Jobs {
     private LocalDateTime localDateTime;
     private String processDate;
     private Integer retryNumber;
-    private Integer sendId;
+    private String send;
+    private String format;
+    private String corebank;
     private String status;
+    private LocalDateTime timeCreateJob;
     private LocalDateTime timeEndJob;
     private LocalDateTime timeStartJob;
 
-    public Jobs(StatementJob statementJob) {
+    public ListJobs(StatementJob statementJob) {
         id = Cayenne.pkForObject(statementJob).toString();
         accountCode = statementJob.getAccountCode();
+        accountCurrency = statementJob.getAccountCurrency();
+        accountType = statementJob.getAccountType();
+        customerCode = statementJob.getCustomerCode();
         errorBankCode = statementJob.getErrorBankCode();
         errorBankDesc = statementJob.getErrorBankDesc();
         errorSendCode = statementJob.getErrorSendCode();
@@ -46,8 +51,11 @@ public class Jobs {
         localDateTime = statementJob.getLocalDateTime();
         processDate = statementJob.getProcessDate();
         retryNumber = statementJob.getRetryNumber();
-        sendId = statementJob.getSendId();
+        send = statementJob.getAdapterSend();
+        format = statementJob.getAdapterFormat();
+        corebank = statementJob.getAdapterCorebank();
         status = statementJob.getStatus();
+        timeCreateJob = statementJob.getTimeCreateJob();
         timeEndJob = statementJob.getTimeEndJob();
         timeStartJob = statementJob.getTimeStartJob();
     }

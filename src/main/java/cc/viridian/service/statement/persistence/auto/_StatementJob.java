@@ -20,19 +20,19 @@ public abstract class _StatementJob extends CayenneDataObject {
     public static final Property<String> ACCOUNT_CODE = Property.create("accountCode", String.class);
     public static final Property<String> ACCOUNT_CURRENCY = Property.create("accountCurrency", String.class);
     public static final Property<String> ACCOUNT_TYPE = Property.create("accountType", String.class);
+    public static final Property<String> ADAPTER_COREBANK = Property.create("adapterCorebank", String.class);
+    public static final Property<String> ADAPTER_FORMAT = Property.create("adapterFormat", String.class);
+    public static final Property<String> ADAPTER_SEND = Property.create("adapterSend", String.class);
     public static final Property<String> CUSTOMER_CODE = Property.create("customerCode", String.class);
     public static final Property<Integer> ERROR_BANK_CODE = Property.create("errorBankCode", Integer.class);
     public static final Property<String> ERROR_BANK_DESC = Property.create("errorBankDesc", String.class);
     public static final Property<Integer> ERROR_SEND_CODE = Property.create("errorSendCode", Integer.class);
     public static final Property<String> ERROR_SEND_DESC = Property.create("errorSendDesc", String.class);
-    public static final Property<Integer> FK_FORMAT = Property.create("fkFormat", Integer.class);
     public static final Property<String> FREQUENCY = Property.create("frequency", String.class);
     public static final Property<LocalDateTime> LOCAL_DATE_TIME = Property.create("localDateTime", LocalDateTime.class);
     public static final Property<String> PROCESS_DATE = Property.create("processDate", String.class);
     public static final Property<Integer> RETRY_NUMBER = Property.create("retryNumber", Integer.class);
-    public static final Property<Integer> SEND_ID = Property.create("sendId", Integer.class);
     public static final Property<String> SEND_RECIPIENT = Property.create("sendRecipient", String.class);
-    public static final Property<Integer> SERVICE_STA_ID = Property.create("serviceStaId", Integer.class);
     public static final Property<String> STATUS = Property.create("status", String.class);
     public static final Property<LocalDateTime> TIME_CREATE_JOB = Property.create("timeCreateJob", LocalDateTime.class);
     public static final Property<LocalDateTime> TIME_END_JOB = Property.create("timeEndJob", LocalDateTime.class);
@@ -57,6 +57,27 @@ public abstract class _StatementJob extends CayenneDataObject {
     }
     public String getAccountType() {
         return (String)readProperty("accountType");
+    }
+
+    public void setAdapterCorebank(String adapterCorebank) {
+        writeProperty("adapterCorebank", adapterCorebank);
+    }
+    public String getAdapterCorebank() {
+        return (String)readProperty("adapterCorebank");
+    }
+
+    public void setAdapterFormat(String adapterFormat) {
+        writeProperty("adapterFormat", adapterFormat);
+    }
+    public String getAdapterFormat() {
+        return (String)readProperty("adapterFormat");
+    }
+
+    public void setAdapterSend(String adapterSend) {
+        writeProperty("adapterSend", adapterSend);
+    }
+    public String getAdapterSend() {
+        return (String)readProperty("adapterSend");
     }
 
     public void setCustomerCode(String customerCode) {
@@ -96,14 +117,6 @@ public abstract class _StatementJob extends CayenneDataObject {
         return (String)readProperty("errorSendDesc");
     }
 
-    public void setFkFormat(int fkFormat) {
-        writeProperty("fkFormat", fkFormat);
-    }
-    public int getFkFormat() {
-        Object value = readProperty("fkFormat");
-        return (value != null) ? (Integer) value : 0;
-    }
-
     public void setFrequency(String frequency) {
         writeProperty("frequency", frequency);
     }
@@ -133,27 +146,11 @@ public abstract class _StatementJob extends CayenneDataObject {
         return (value != null) ? (Integer) value : 0;
     }
 
-    public void setSendId(int sendId) {
-        writeProperty("sendId", sendId);
-    }
-    public int getSendId() {
-        Object value = readProperty("sendId");
-        return (value != null) ? (Integer) value : 0;
-    }
-
     public void setSendRecipient(String sendRecipient) {
         writeProperty("sendRecipient", sendRecipient);
     }
     public String getSendRecipient() {
         return (String)readProperty("sendRecipient");
-    }
-
-    public void setServiceStaId(int serviceStaId) {
-        writeProperty("serviceStaId", serviceStaId);
-    }
-    public int getServiceStaId() {
-        Object value = readProperty("serviceStaId");
-        return (value != null) ? (Integer) value : 0;
     }
 
     public void setStatus(String status) {
