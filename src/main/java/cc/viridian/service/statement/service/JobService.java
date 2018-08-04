@@ -10,10 +10,6 @@ import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.query.EJBQLQuery;
 import org.apache.cayenne.query.ObjectSelect;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.KafkaHeaders;
-import org.springframework.messaging.Message;
-import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -27,7 +23,7 @@ public class JobService {
     ServerRuntime mainServerRuntime;
 
     @Autowired
-    private KafkaTemplate<String, JobTemplate> kafkaTemplate;
+    JobKafkaProducer jobKafkaProducer;
 
     public ListJobsResponse listJobs(Integer start, Integer length)
     {
@@ -68,10 +64,7 @@ public class JobService {
 
     public String registerSingleJob(PostRegisterJob body) {
 
-
         //save in database
-        //place in kafka
-
         ObjectContext context = mainServerRuntime.newContext();
         StatementJob statementJob = context.newObject(StatementJob.class);
 
@@ -102,31 +95,12 @@ public class JobService {
         context.commitChanges();
         String id = Cayenne.pkForObject(statementJob).toString();
 
-
+        //send message to kafka
         JobTemplate jobTemplate = new JobTemplate(statementJob);
 
-        Message<JobTemplate> message = MessageBuilder
-            .withPayload(jobTemplate)
-            .setHeader(KafkaHeaders.MESSAGE_KEY, id)
-            .build();
-
-        kafkaTemplate.send(message);
+        jobKafkaProducer.send(id, jobTemplate);
 
         return body.getAccount();
     }
-
-    /*
-    private KafkaMessageListenerContainer<Integer, String> createContainer(
-        ContainerProperties containerProps) {
-        Map<String, Object> props = consumerProps();
-        DefaultKafkaConsumerFactory<Integer, String> cf =
-            new DefaultKafkaConsumerFactory<Integer, String>(props);
-        KafkaMessageListenerContainer<Integer, String> container =
-            new KafkaMessageListenerContainer<>(cf, containerProps);
-        return container;
-    }
-    */
-
-
 
 }
