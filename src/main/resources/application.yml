@@ -17,6 +17,7 @@ topic:
 
 database:
   jdbc-driver: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/statement
+  url2: jdbc:postgresql://localhost:5432/statement
+  url: jdbc:postgresql://142.93.60.121:5432/statement
   user: postgres
   password: sample

@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @Autowired
-    ServerRuntime mainServerRuntime;
-
     @RequestMapping("/")
     public String home(
         @RequestParam(required = false) String localUrl,

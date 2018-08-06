@@ -9,10 +9,9 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 
-@Service
+//@Service
 @Slf4j
 public class JobKafkaListener {
     @Value("${spring.kafka.bootstrap-servers}")
@@ -42,7 +41,7 @@ public class JobKafkaListener {
         LocalDate from = LocalDate.now().minusDays(7);
         LocalDate to = LocalDate.now().minusDays(1);
         Statement statement = coreBank.getStatement(data.getAccount(), data.getType(), data.getCurrency(), from, to );
-        
+
         System.out.println( statement);
         System.out.println( statement.getHeader());
         System.out.println( statement.getDetails());

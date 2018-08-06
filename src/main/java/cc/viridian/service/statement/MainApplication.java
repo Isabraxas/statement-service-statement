@@ -16,12 +16,13 @@ public class MainApplication {
 		SpringApplication.run(MainApplication.class, args);
 
 		//sandbox
+        /*
         Statement statement = ScheduleService.getInstance().getRandomStatement();
 
         System.out.println( statement);
         System.out.println( statement.getHeader());
         System.out.println( statement.getDetails());
-
+        */
     }
 
 }
