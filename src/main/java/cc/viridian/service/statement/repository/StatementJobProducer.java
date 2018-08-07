@@ -1,9 +1,8 @@
-package cc.viridian.service.statement.service;
+package cc.viridian.service.statement.repository;
 
 import cc.viridian.service.statement.payload.JobTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.Message;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class JobKafkaProducer {
+public class StatementJobProducer {
 
     @Autowired
     private KafkaTemplate<String, JobTemplate> kafkaTemplate;

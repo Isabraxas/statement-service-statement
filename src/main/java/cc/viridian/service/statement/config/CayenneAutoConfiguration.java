@@ -1,4 +1,4 @@
-package cc.viridian.service.statement;
+package cc.viridian.service.statement.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.cayenne.configuration.server.ServerRuntime;
