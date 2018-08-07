@@ -1,6 +1,6 @@
 package cc.viridian.service.statement.repository;
 
-import cc.viridian.service.statement.payload.JobTemplate;
+import cc.viridian.service.statement.model.JobTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -17,7 +17,8 @@ public class StatementJobProducer {
     private KafkaTemplate<String, JobTemplate> kafkaTemplate;
 
     public void send(String messageKey, JobTemplate data){
-        log.debug("sending data= "+ data + " with key=" + messageKey);
+        log.info("sending message with key=" + messageKey);
+        log.debug("sending data= "+ data );
 
         Message<JobTemplate> message = MessageBuilder
             .withPayload(data)

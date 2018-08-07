@@ -1,5 +1,6 @@
 package cc.viridian.service.statement.payload;
 
+import cc.viridian.service.statement.model.StatementJobModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,8 +11,11 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
+/**
+ * Response for DataTable
+ */
 public class ListJobsResponse {
     private Long recordsTotal;
     private Long recordsFiltered;
-    private List<ListJobs> data;
+    private List<StatementJobModel> data;
 }

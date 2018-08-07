@@ -2,7 +2,7 @@ package cc.viridian.service.statement.repository;
 
 import cc.viridian.provider.CoreBankProvider;
 import cc.viridian.provider.model.Statement;
-import cc.viridian.service.statement.payload.JobTemplate;
+import cc.viridian.service.statement.model.JobTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;

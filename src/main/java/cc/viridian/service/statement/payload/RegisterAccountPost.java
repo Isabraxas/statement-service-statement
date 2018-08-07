@@ -9,7 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class PostRegisterJob {
+public class RegisterAccountPost {
     private String account;
     private String currency;
     private String type;

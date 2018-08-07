@@ -1,5 +1,6 @@
 package cc.viridian.service.statement.payload;
 
+import cc.viridian.service.statement.model.AccountsRegistered;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

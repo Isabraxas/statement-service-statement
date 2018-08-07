@@ -1,5 +1,6 @@
 package cc.viridian.service.statement.repository;
 
+import cc.viridian.service.statement.model.StatementJobModel;
 import cc.viridian.service.statement.payload.*;
 import cc.viridian.service.statement.persistence.StatementJob;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +15,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Repository
@@ -36,11 +36,11 @@ public class StatementJobRepository {
                                               .offset(start)
                                               .select(context);
 
-        List<ListJobs> jobsRegistered = new ArrayList<>();
+        List<StatementJobModel> jobsRegistered = new ArrayList<>();
 
         Iterator<StatementJob> it = jobs.iterator();
         while (it.hasNext()) {
-            jobsRegistered.add(new ListJobs(it.next()) );
+            jobsRegistered.add(new StatementJobModel(it.next()) );
         }
 
         ListJobsResponse response = new ListJobsResponse();
@@ -63,7 +63,7 @@ public class StatementJobRepository {
         return result.get(0);
     }
 
-    public SavedStatementJob registerSingleJob(PostRegisterJob body) {
+    public SavedStatementJob registerSingleJob(RegisterJobPost body) {
 
         //save in database
         ObjectContext context = mainServerRuntime.newContext();
@@ -95,6 +95,7 @@ public class StatementJobRepository {
 
         context.commitChanges();
         String id = Cayenne.pkForObject(statementJob).toString();
+        Cayenne.longPKForObject(statementJob);
 
         return new SavedStatementJob(id, statementJob);
     }

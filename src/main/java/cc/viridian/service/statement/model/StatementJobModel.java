@@ -1,4 +1,4 @@
-package cc.viridian.service.statement.payload;
+package cc.viridian.service.statement.model;
 
 import cc.viridian.service.statement.persistence.StatementJob;
 import lombok.AllArgsConstructor;
@@ -7,15 +7,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.apache.cayenne.Cayenne;
 import java.time.LocalDateTime;
-import java.util.Map;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-public class ListJobs {
+public class StatementJobModel {
 
-    private String id;
+    private Long id;
 
     private String accountCode;
     private String accountCurrency;
@@ -37,8 +36,8 @@ public class ListJobs {
     private LocalDateTime timeEndJob;
     private LocalDateTime timeStartJob;
 
-    public ListJobs(StatementJob statementJob) {
-        id = Cayenne.pkForObject(statementJob).toString();
+    public StatementJobModel(StatementJob statementJob) {
+        id = Cayenne.longPKForObject(statementJob);
         accountCode = statementJob.getAccountCode();
         accountCurrency = statementJob.getAccountCurrency();
         accountType = statementJob.getAccountType();

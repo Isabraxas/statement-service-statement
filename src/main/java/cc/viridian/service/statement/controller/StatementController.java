@@ -15,7 +15,7 @@ public class StatementController {
     @RequestMapping(method = RequestMethod.POST, value="/account")
     @ResponseBody
     public String registerNewAccount(
-        @RequestBody PostRegisterAccount body)
+        @RequestBody RegisterAccountPost body)
     {
         return statementService.registerNewAccount(body);
     }

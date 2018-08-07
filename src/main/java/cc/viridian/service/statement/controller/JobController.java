@@ -1,7 +1,7 @@
 package cc.viridian.service.statement.controller;
 
 import cc.viridian.service.statement.payload.ListJobsResponse;
-import cc.viridian.service.statement.payload.PostRegisterJob;
+import cc.viridian.service.statement.payload.RegisterJobPost;
 import cc.viridian.service.statement.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class JobController {
     @RequestMapping(method = RequestMethod.POST, value="/job")
     @ResponseBody
     public String registerNewJob(
-        @RequestBody PostRegisterJob body)
+        @RequestBody RegisterJobPost body)
     {
         return jobService.registerSingleJob(body);
     }
@@ -33,7 +33,7 @@ public class JobController {
     @RequestMapping(method = RequestMethod.POST, value="/job/single")
     @ResponseBody
     public String processSingleJob(
-        @RequestBody PostRegisterJob body)
+        @RequestBody RegisterJobPost body)
     {
         return jobService.registerSingleJob(body);
     }

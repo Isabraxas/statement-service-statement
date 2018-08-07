@@ -1,7 +1,7 @@
 package cc.viridian.service.statement.service;
 
 import cc.viridian.service.statement.payload.ListAccountsResponse;
-import cc.viridian.service.statement.payload.PostRegisterAccount;
+import cc.viridian.service.statement.payload.RegisterAccountPost;
 import cc.viridian.service.statement.repository.StatementMainRepository;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ public class StatementService {
     }
 
 
-    public String registerNewAccount(PostRegisterAccount body) {
+    public String registerNewAccount(RegisterAccountPost body) {
         return statementMainRepository.registerNewAccount(body);
     }
 

@@ -1,8 +1,8 @@
 package cc.viridian.service.statement.repository;
 
-import cc.viridian.service.statement.payload.AccountsRegistered;
+import cc.viridian.service.statement.model.AccountsRegistered;
 import cc.viridian.service.statement.payload.ListAccountsResponse;
-import cc.viridian.service.statement.payload.PostRegisterAccount;
+import cc.viridian.service.statement.payload.RegisterAccountPost;
 import cc.viridian.service.statement.persistence.StatementMain;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.cayenne.ObjectContext;
@@ -26,7 +26,7 @@ public class StatementMainRepository {
         this.mainServerRuntime = mainServerRuntime;
     }
 
-    public String registerNewAccount(PostRegisterAccount body) {
+    public String registerNewAccount(RegisterAccountPost body) {
         ObjectContext context = mainServerRuntime.newContext();
         StatementMain statementMain = context.newObject(StatementMain.class);
 

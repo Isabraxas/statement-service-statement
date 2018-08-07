@@ -1,4 +1,4 @@
-package cc.viridian.service.statement.payload;
+package cc.viridian.service.statement.model;
 
 import cc.viridian.service.statement.persistence.StatementJob;
 import lombok.AllArgsConstructor;

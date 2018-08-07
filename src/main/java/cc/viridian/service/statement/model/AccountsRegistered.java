@@ -1,4 +1,4 @@
-package cc.viridian.service.statement.payload;
+package cc.viridian.service.statement.model;
 
 import cc.viridian.service.statement.persistence.StatementMain;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.apache.cayenne.Cayenne;
 import java.time.LocalDateTime;
-import java.util.Map;
 
 @Getter
 @Setter
@@ -15,7 +14,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class AccountsRegistered {
 
-    private String id;
+    private Long id;
 
     private String accountCode;
     private String accountCurrency;
@@ -36,7 +35,7 @@ public class AccountsRegistered {
 
 
     public AccountsRegistered(StatementMain statementMain) {
-        id = Cayenne.pkForObject(statementMain).toString();
+        id = Cayenne.longPKForObject(statementMain);
         accountCode = statementMain.getAccountCode();
         accountCurrency = statementMain.getAccountCurrency();
         accountType = statementMain.getAccountType();
