@@ -6,5 +6,9 @@ spring:
   cloud:
     config:
       uri2: http://electron.viridian.cc:9002
-      uri: http://localhost:7015
+      #uri: http://localhost:7015
+      uri: http://localhost:7000
+      username: ${CLOUD_CONFIG_USER:configuser}
+      password: ${CLOUD_CONFIG_PASS:configpass}
       profile: default
+      fail-fast: true
